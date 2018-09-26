@@ -1,0 +1,56 @@
+$tim_mong_mo: #FF66FF;
+$trang: #fff;
+$xanh_nhat: #00af9e;
+.header {
+
+    background: none !important;
+    margin-bottom : -1px !important;
+    border: 0px;
+    .container {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 95%;
+    }
+    a {
+        color: $xanh_nhat !important;
+        height: 40px;
+        &:hover {
+            color: $tim_mong_mo !important;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    .open {
+        a#basic-nav-dropdown {
+            background-color: #2494bd!important;
+        }
+        
+        // color: #fff!important;
+        ul {
+            a {
+                background-color: #fff;
+                color: #000 !important;
+
+                &:hover {
+                    color: #fff !important;
+                    background-color: #33b5e5;
+                }
+            }
+        }
+    }
+    
+}
+
+.c-a-create  {
+    border: 1px solid $xanh_nhat;
+    border-radius: .2rem;
+    padding: 7px;
+    color: $xanh_nhat !important;
+    margin-top: -10px;
+
+    &:hover{
+        color: $trang !important;
+        background-color: $xanh_nhat;
+        transition: all 0.5s ease-in-out;
+    }
+}
