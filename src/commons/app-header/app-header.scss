@@ -1,9 +1,9 @@
 $tim_mong_mo: #FF66FF;
-$trang: #fff;
+$while: #fff;
+$black : #000000;
 $xanh_nhat: #00af9e;
 .header {
-
-    background: none !important;
+    background: #3b5998 !important;
     margin-bottom : -1px !important;
     border: 0px;
     .container {
@@ -12,7 +12,7 @@ $xanh_nhat: #00af9e;
         width: 95%;
     }
     a {
-        color: $xanh_nhat !important;
+        color: $while !important;
         height: 40px;
         &:hover {
             color: $tim_mong_mo !important;
@@ -40,17 +40,25 @@ $xanh_nhat: #00af9e;
     }
     
 }
-
-.c-a-create  {
-    border: 1px solid $xanh_nhat;
-    border-radius: .2rem;
+.span-myquestion {
+    border-radius: .4rem;
     padding: 7px;
-    color: $xanh_nhat !important;
+    color: $black !important;
     margin-top: -10px;
-
     &:hover{
-        color: $trang !important;
-        background-color: $xanh_nhat;
+        background-color: $xanh_nhat !important;
+        border: 1px solid $xanh_nhat !important;
         transition: all 0.5s ease-in-out;
     }
+}
+.span-latest {
+    border-radius: .4rem;
+    padding: 7px;
+    color: $while !important;
+    margin-top: -10px;
+    &:hover{
+        background-color: $xanh_nhat !important;
+        border: 1px solid $xanh_nhat !important;
+        transition: all 0.5s ease-in-out;
+    } 
 }

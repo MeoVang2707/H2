@@ -81,8 +81,12 @@ export default class Login extends React.Component {
                                 </div>
                                 <div className="forgot">
                                     <a href="#">Quên mật khẩu?</a>
+                                    <a href="#" className="register">Đăng ký?</a>
                                 </div>
                                 <button type="button" className="btn btn-primary" onClick={this.onLoginBtnClick}>Đăng nhập</button>
+                                <div className="fb-gg">
+                                
+                                </div>
                             </form>
                         </div>
                     </div>
