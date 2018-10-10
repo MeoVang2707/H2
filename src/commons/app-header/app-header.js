@@ -29,7 +29,7 @@ export default class AppHeader extends React.Component {
         latest: "Mới nhất",
         bestquestion: "Hỏi hay nhất"
       },
-      title: "Hoihay.vn Hỏi đáp chất lượng cao"
+      title: "Hỏi đáp chất lượng cao"
     };
   }
   onLogin(username) {
@@ -66,20 +66,24 @@ export default class AppHeader extends React.Component {
               <a href="#brand">{title}
               </a>
             </Navbar.Brand>
+            <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Nav pullRight>
-              <NavItem>
-                <span className="span-latest b-green bd-green w-15" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.latest}</span>
+            <Nav pullRight >
+            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-success btn-block'>{titleBt.latest}</button></li>
+            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-danger btn-block'>{titleBt.bestquestion}</button></li>
+            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-default btn-block'>{titleBt.myquestion}</button></li>
+              {/* <NavItem>
+                <span className="span-latest b-green bd-green" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.latest}</span>
               </NavItem>
 
               <NavItem>
-                <span className="span-latest b-orange bd-orange w-15" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.bestquestion}</span>
+                <span className="span-latest b-orange bd-orange" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.bestquestion}</span>
               </NavItem>
 
               <NavItem>
                 <span className="span-myquestion bd-while b-while" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.myquestion}</span>
-              </NavItem>
+              </NavItem> */}
               <Navbar.Form pullLeft>
                     <FormGroup>
                       <FormControl type="text" placeholder="Tìm kiếm gì đó " />
