@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 import {
     Carousel,
-    Navbar,
-    Nav,
-    NavDropdown,
-    NavItem
+    // Navbar,
+    // Nav,
+    // NavDropdown,
+    // NavItem
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 export default class Promotion extends React.Component {

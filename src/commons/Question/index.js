@@ -70,7 +70,7 @@ class Question extends React.PureComponent {
           this.state.listAnswers.map((answer,index) => (
             <Row type="flex" align="middle" style={{marginTop: "8px"}} key={index}>
               <Col span={2}>
-                <img src={imgAva} className="imgAva" />
+                <img src={imgAva} className="imgAva" alt="Avaar"/>
               </Col>
               <Col span={21} >
                 <div className="answerContainer">
@@ -102,7 +102,7 @@ class Question extends React.PureComponent {
       <div className="question">
         <Row type="flex" align="middle">
           <Col span={3}>
-            <img src={imgAva} className="imgAvaQuestion"/>
+            <img src={imgAva} className="imgAvaQuestion" alt="Avaar"/>
           </Col>
           <Col span = {20}>
             <Row style={{color:"#1D4077", fontWeight:"bold"}}>Trần Trung Hiếu</Row>
@@ -124,15 +124,15 @@ class Question extends React.PureComponent {
         <Row type="flex" align="middle" style={{marginBottom: '20px'}}>
           <Col span={4}>
             <Row type="flex" justify="space-between">
-              <img src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike}/>
-              <img src={imgShare} />
-              <img src={imgComment} />
+              <img src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike} alt="Like"/>
+              <img src={imgShare} alt="Share"/>
+              <img src={imgComment} alt="Comment"/>
             </Row>
           </Col>
         </Row>
         <Row type="flex" align="middle">
           <Col span={2}>
-            <img src={imgAva} className="imgAva" />
+            <img src={imgAva} className="imgAva" alt="Avaar" />
           </Col>
           <Col span={21}>
             <Input placeholder="Trả lời hay nhận quà ngay" className="input"/>

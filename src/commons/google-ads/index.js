@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import {
-    MenuItem,
-    Navbar,
-    Nav,
-    NavDropdown,
-    NavItem
-} from 'react-bootstrap';
+import React from 'react';
+// import {
+//     MenuItem,
+//     Navbar,
+//     Nav,
+//     NavDropdown,
+//     NavItem
+// } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 export default class GoogleAds extends React.Component {
     static contextTypes = {

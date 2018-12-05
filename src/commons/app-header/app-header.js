@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 import {
   MenuItem,
   Navbar,
@@ -56,7 +56,7 @@ export default class AppHeader extends React.Component {
   }
 
   render() {
-    const { isSearch, isLogin, isShownModal, username, titleBt, title } = this.state;
+    const { isLogin, isShownModal, username, titleBt, title } = this.state;
     // let isLogin = () => this.setState({ isLogin: false });
     return (
       <div>
