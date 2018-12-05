@@ -1,0 +1,71 @@
+.header{
+  background-color: #8E2D79;
+  height: 50px;
+  padding-left: 25px;
+}
+.webName{
+  color: #ffffff;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.sologan{
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.buttonMoiNhat{
+  width: 150px;
+  background-color: #28B446;
+  border-radius: 4px;
+  height: 34px;
+  color: #ffffff;
+  border: none;
+}
+
+.buttonhoiHayNhat{
+  width: 150px;
+  background-color: #F14336;
+  border-radius: 4px;
+  height: 34px;
+  color: #ffffff;
+  border: none;
+}
+
+.buttonCauHoiCuaToi{
+  width: 150px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  height: 34px;
+  color: #000000;
+  border: none;
+}
+
+.numberHHC{
+  color: #FBBB00;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.ant-dropdown-link{
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.userInfor{
+  padding-right: 25px;
+}
+
+.imgAva{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid pink;
+  margin: 0 10px;
+
+}
+ button:hover {
+   cursor: pointer;
+ }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Modal, FormGroup, Button, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap'
+import React  from 'react';
+import { Modal } from 'react-bootstrap'
 import PropTypes from 'prop-types';
 import {login} from '../../../../services/apis/UserService';
 import {set} from '../../../../services/StorageService';
@@ -16,13 +16,13 @@ export default class Login extends React.Component {
     static contextTypes = {
         router: PropTypes.object
     }
-    getValidationState() {
-        const length = this.state.value.length;
-        if (length > 10) return 'success';
-        else if (length > 5) return 'warning';
-        else if (length > 0) return 'error';
-        return null;
-    }
+    // getValidationState() {
+    //     const length = this.state.value.length;
+    //     if (length > 10) return 'success';
+    //     else if (length > 5) return 'warning';
+    //     else if (length > 0) return 'error';
+    //     return null;
+    // }
 
     onChangeInput(e) {
         const newValue = e.target.value;
