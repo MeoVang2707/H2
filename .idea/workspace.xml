@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e523d7a1-3964-476f-b96a-ad0fd92bd2af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Header/images/ava.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Header/images/seach.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Header/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Header/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/NavBar/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/NavBar/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/NavBar/tests/index.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/images/Comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/images/ava.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/images/like.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/images/liked.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/images/share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/Question/tests/index.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/ThongKe/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/ThongKe/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/ThongKe/tests/index.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/XepHang/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/XepHang/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Profile/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/Profile/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/index.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="e523d7a1-3964-476f-b96a-ad0fd92bd2af" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -53,6 +22,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="4" />
+          <entry key="gitignore" value="1" />
           <entry key="js" value="14" />
           <entry key="json" value="4" />
           <entry key="jsx" value="7" />
@@ -65,6 +35,7 @@
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="7" />
           <entry key="JavaScript" value="14" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="SCSS" value="2" />
         </counts>
       </usages-collector>
@@ -72,14 +43,14 @@
         <counts>
           <entry key="css" value="157" />
           <entry key="js" value="1901" />
-          <entry key="json" value="3" />
+          <entry key="json" value="4" />
           <entry key="jsx" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="157" />
-          <entry key="JSON" value="3" />
+          <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="52" />
           <entry key="JavaScript" value="1901" />
         </counts>
@@ -122,15 +93,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="102">
+              <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
               <folding>
-                <element signature="n#!!block;n#dependencies#0;n#!!top" />
                 <element signature="n#!!block;n#scripts#0;n#!!top" />
-                <element signature="n#!!block;n#jest#0;n#!!top" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -189,6 +163,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>3006</find>
+      <find>sass</find>
+      <find>sass-</find>
+      <find>sass-loa</find>
     </findStrings>
     <dirStrings>
       <dir>F:\CLC\20181\Đồ án\hoihay\client</dir>
@@ -337,12 +314,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544006934724</updated>
-      <workItem from="1544006938098" duration="15187000" />
+      <workItem from="1544006938098" duration="15892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15187000" />
+    <option name="totallyTimeSpent" value="15892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -350,11 +327,11 @@
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.35384616" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.35384616" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32923076" />
@@ -512,14 +489,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
           <folding>
-            <element signature="n#!!block;n#dependencies#0;n#!!top" />
             <element signature="n#!!block;n#scripts#0;n#!!top" />
-            <element signature="n#!!block;n#jest#0;n#!!top" />
           </folding>
         </state>
       </provider>
