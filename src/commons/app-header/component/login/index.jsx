@@ -7,7 +7,7 @@ export default class Login extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            username: 'thinh@gmail.com',
+            username: 'hieu@gmail.com',
             password: 'hello'
         };
         this.onLoginBtnClick = this.onLoginBtnClick.bind(this);

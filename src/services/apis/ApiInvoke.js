@@ -33,7 +33,6 @@ function handleResponse(res) {
     if (!res.data) {
         return Promise.reject(new Error('Something went wrong'));
     } else {
-      console.log('xxx', res)
       if (res.status) {
           return Promise.resolve(res.data);
       } else {
@@ -49,7 +48,6 @@ export function getWithoutAuth(route) {
 
 export function getWithAuth(route){
   let url = BASE_URL + route;
-  console.log('aaa', headers);
   return axios.get(url, {headers: {
       authorization: getStorage('authorization')
     }})
@@ -64,7 +62,9 @@ export function postWithoutAuth(route, payload){
 
 export function postWithAuth(route, payload){
   let url = BASE_URL + route;
-  return axios.post(url, payload, {headers})
+  return axios.post(url, payload, {headers: {
+      authorization: getStorage('authorization')
+    }})
     .then(handleResponse);
 };
 

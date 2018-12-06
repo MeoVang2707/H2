@@ -16,6 +16,7 @@ import {getMyQuestion} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
+import AddQuestion from '../../commons/AddQuestion'
 import './style.css';
 /* eslint-disable react/prefer-stateless-function */
 
@@ -25,17 +26,16 @@ export class Profile extends React.PureComponent {
     this.state={
       listQuestion: [],
       token: getStorage('authorization')
-    }
+    };
+    this.getListMyQuestion =this.getListMyQuestion.bind(this);
   }
   componentDidMount(){
     this.getListMyQuestion();
   }
 
   getListMyQuestion(){
-    console.log('ssss', getStorage('authorization'))
     getMyQuestion()
       .then(res => {
-        console.log(res);
         this.setState({
           listQuestion: res.myQuestion,
         })
@@ -63,13 +63,17 @@ export class Profile extends React.PureComponent {
               <ThongKe />
             </Row>
           </Col>
-          <Col span={10} style={{padding: "10px"}}>
-            {this.state.listQuestion.map(question => (
-              <Row style={{marginTop: "10px"}} key={question.PostId}>
-                <Question question={question} />
-              </Row>
-            ))}
-
+          <Col span={14} style={{padding: "10px"}}>
+            <Col span={18}>
+              <AddQuestion getListMyQuestion={this.getListMyQuestion}/>
+            </Col>
+            <Col span={18}>
+              {this.state.listQuestion.map(question => (
+                <Row style={{marginTop: "10px"}} key={question.PostId}>
+                  <Question question={question} getListMyQuestion={this.getListMyQuestion} />
+                </Row>
+              ))}
+            </Col>
           </Col>
         </Row>
       </div>
