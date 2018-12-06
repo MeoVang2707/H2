@@ -7,8 +7,8 @@ export default class Login extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            username: 'sonpdddn@tringhiatechdds3.vn',
-            password: '123456'
+            username: 'thinh@gmail.com',
+            password: 'hello'
         };
         this.onLoginBtnClick = this.onLoginBtnClick.bind(this);
         this.onChangeInput = this.onChangeInput.bind(this);
@@ -29,13 +29,13 @@ export default class Login extends React.Component {
         const name = e.target.name;
         this.setState({[name]: newValue});
     }
-    onLoginBtnClick() {
+    onLoginBtnClick= () => {
         const {username, password} = this.state;
-        const me = this;
         login(username,password)
         .then(res => {
             set('authorization',res.Token);
-            me.props.onLogin(username);
+            set('username',username);
+            this.props.onLogin(username);
             // this.context.router.history.push(`/home`)
         });
     }

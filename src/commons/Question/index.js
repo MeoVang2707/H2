@@ -34,10 +34,12 @@ class Question extends React.PureComponent {
   constructor(props){
     super(props);
     this.state={
+
       liked: false,
       listAnswers: []
     };
     this.onXemThem = this.onXemThem.bind(this);
+    this.onHideQuestion = this.onHideQuestion.bind(this);
   }
 
   onToggleLike = () => {
@@ -49,13 +51,9 @@ class Question extends React.PureComponent {
   componentDidMount(){
     const answers = this.props.question.answers;
     if (answers.length > 3){
-      this.setState({
-        listAnswers: answers.slice(0,3)
-      });
+      this.onHideQuestion(answers)
     } else {
-      this.setState({
-        listAnswers: answers
-      });
+      this.onXemThem(answers)
     }
   }
 
@@ -86,8 +84,19 @@ class Question extends React.PureComponent {
           this.state.listAnswers.length >= answers.length ? null :
             <span className="textEdit" onClick={() => this.onXemThem(answers)}>Xem Thêm</span>
         }
+
+        {
+          this.state.listAnswers.length < answers.length ? null :
+            <span className="textEdit" onClick={() => this.onHideQuestion(answers)}>Ẩn</span>
+        }
       </div>
     return x
+  };
+
+  onHideQuestion = (answers) => {
+    this.setState({
+      listAnswers: answers.slice(0,3)
+    });
   };
 
   onXemThem = (answers) => {

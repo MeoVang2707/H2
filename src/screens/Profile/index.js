@@ -8,9 +8,11 @@ import React from 'react';
 // import { connect,  } from 'react-redux';
 // import { compose } from 'redux';
 import { Row, Col } from 'antd';
-import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 import Header from '../../commons/app-header/app-header';
-// import NavBar from '../../commons/NavBar';
+import {getStorage} from '../../services/StorageService'
+import {getMyQuestion} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
@@ -21,29 +23,31 @@ export class Profile extends React.PureComponent {
   constructor(props){
     super(props);
     this.state={
-      listQuestion: []
+      listQuestion: [],
+      token: getStorage('authorization')
     }
   }
   componentDidMount(){
-    this.getListMyQuestion();
+    this.state.token ? this.getListMyQuestion() : null;
   }
 
   getListMyQuestion(){
-    axios.get(`https://frozen-garden-23187.herokuapp.com/api/question/myQuestion`,
-      {
-        headers: {
-          authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InRoaW5oQGdtYWlsLmNvbSIsImlhdCI6MTU0NDAxNTQ5MSwiZXhwIjoxNTQ0MTg4MjkxfQ.NzUSAGJmwtjmIsYCeKZpCBJUVmiw3CA47mXKSvRL7dk'
-        }
-      })
+    console.log('ssss', getStorage('authorization'))
+    getMyQuestion()
       .then(res => {
-        // console.log('aaa', res.data.myQuestion[0]);
+        console.log(res);
         this.setState({
-          listQuestion: res.data.myQuestion,
+          listQuestion: res.myQuestion,
         })
       })
   }
 
   render() {
+    if (!this.state.token) {
+      return (
+        <Redirect href="/" to="/" />
+      );
+    }
     return (
       <div>
         <Row>

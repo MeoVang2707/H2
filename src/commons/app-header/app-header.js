@@ -11,19 +11,23 @@ import {
 } from 'react-bootstrap';
 import Login from './component/login/index';
 import PropTypes from 'prop-types';
+import {getStorage, clear} from '../../services/StorageService'
+import { Link } from 'react-router-dom';
+
 export default class AppHeader extends React.Component {
   static contextTypes = {
     router: PropTypes.object
-  }
+  };
+
   constructor(props, context) {
     super(props, context);
 
     this.state = {
       lgShow: false,
       isSearch: false,
-      isLogin: false,
+      isLogin: getStorage('authorization'),
       isShownModal: false,
-      username: null,
+      username: getStorage('username'),
       titleBt: {
         myquestion: "Câu hỏi của tôi",
         latest: "Mới nhất",
@@ -37,7 +41,9 @@ export default class AppHeader extends React.Component {
   }
 
   onLogoutBtnClick() {
-    this.setState({ isLogin: false });
+    // this.setState({ isLogin: false });
+    clear('authorization');
+    this.setState({ isLogin: false})
   }
 
   onOpenModal() {
@@ -72,7 +78,13 @@ export default class AppHeader extends React.Component {
             <Nav pullRight >
             <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-success btn-block'>{titleBt.latest}</button></li>
             <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-danger btn-block'>{titleBt.bestquestion}</button></li>
-            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-default btn-block'>{titleBt.myquestion}</button></li>
+            <li style={{width: '160px', padding: '8px'}}>
+              <Link to='/profile' style={{padding: 0}}>
+                <button  className='btn btn-default btn-block'>
+                  {titleBt.myquestion}
+                </button>
+              </Link>
+            </li>
               {/* <NavItem>
                 <span className="span-latest b-green bd-green" style={{ 'fontSize': '18px' }} onClick={() => this.onClickCreatePost()}> {titleBt.latest}</span>
               </NavItem>
@@ -101,7 +113,11 @@ export default class AppHeader extends React.Component {
                     <MenuItem>Inbox</MenuItem>
                     <MenuItem>Edit profile</MenuItem>
                     <MenuItem divider />
-                    <MenuItem onClick={() => this.onLogoutBtnClick()}>Đăng xuất</MenuItem>
+                    <MenuItem onClick={() => this.onLogoutBtnClick()}>
+                      <Link href='/' to='/' style={{padding: 0}}>
+                        Đăng xuất
+                      </Link>
+                    </MenuItem>
                   </NavDropdown>
                   :
                   <NavItem onClick={() => this.onOpenModal()}>
