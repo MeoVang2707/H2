@@ -28,7 +28,7 @@ export class Profile extends React.PureComponent {
     }
   }
   componentDidMount(){
-    this.state.token ? this.getListMyQuestion() : null;
+    this.getListMyQuestion();
   }
 
   getListMyQuestion(){
