@@ -29,6 +29,7 @@ class Question extends React.PureComponent {
       liked: false,
       listAnswers: [],
       newAnswer: null,
+      pureListAnswer: this.props.question.answers
     };
     this.onXemThem = this.onXemThem.bind(this);
     this.onHideQuestion = this.onHideQuestion.bind(this);
@@ -45,7 +46,7 @@ class Question extends React.PureComponent {
   };
 
   componentDidMount(){
-    const answers = this.props.question.answers;
+    const answers = this.state.pureListAnswer;
     if (answers.length > 3){
       this.onHideQuestion(answers)
     } else {
@@ -53,7 +54,8 @@ class Question extends React.PureComponent {
     }
   }
 
-  renderAnswer = (answers) => {
+  renderAnswer = () => {
+    const answers = this.state.pureListAnswer
     if (this.state.listAnswers.length === 0) {
       return null
     }
@@ -64,6 +66,7 @@ class Question extends React.PureComponent {
           this.state.listAnswers.map(answer => (
             <EachAnswer answer={answer}
                         deleteOneAnswer={answer => this.deleteOneAnswer(answer)}
+                        getListMyQuestion={this.props.getListMyQuestion}
                         key={answer.AnswerId}
             />
           ))
@@ -71,26 +74,27 @@ class Question extends React.PureComponent {
 
         {
           this.state.listAnswers.length >= answers.length ? null :
-            <span className="textEdit" onClick={() => this.onXemThem(answers)}>Xem Thêm</span>
+            <span className="textEdit" onClick={() => this.onXemThem()}>Xem Thêm</span>
         }
 
         {
           this.state.listAnswers.length < answers.length || answers.length <= 3 ? null :
-            <span className="textEdit" onClick={() => this.onHideQuestion(answers)}>Ẩn</span>
+            <span className="textEdit" onClick={() => this.onHideQuestion()}>Ẩn</span>
         }
       </div>
     return x
   };
 
-  onHideQuestion = (answers) => {
+  onHideQuestion = () => {
+
     this.setState({
-      listAnswers: answers.slice(0,3)
+      listAnswers: this.state.pureListAnswer.slice(0,3)
     });
   };
 
-  onXemThem = (answers) => {
+  onXemThem = () => {
     this.setState({
-      listAnswers: answers
+      listAnswers: this.state.pureListAnswer
     });
   };
 
@@ -146,16 +150,17 @@ class Question extends React.PureComponent {
   }
 
   deleteOneAnswer = (answer) => {
-    // const index = this.state.listAnswers.indexOf(answer);
     const x = [...this.state.listAnswers];
+    const y = [...this.state.pureListAnswer];
     const index = x.indexOf(answer);
     if (index >= 0){
       x.splice(index, 1);
+      y.splice(index, 1);
       this.setState({
         listAnswers: x,
+        pureListAnswer: y
       })
     }
-    // this.props.getListMyQuestion();
   }
 
   render() {
@@ -228,7 +233,7 @@ class Question extends React.PureComponent {
           </Col>
         </Row>
 
-        {this.renderAnswer(question.answers)}
+        {this.renderAnswer()}
       </div>
     );
   }

@@ -103,11 +103,11 @@ class AddQuestion extends React.PureComponent {
               <Select
                 showSearch
                 style={{ width: "20%", margin: "10px", marginLeft: 0 }}
-                placeholder="Chọn môn học"
-                optionFilterProp="children"
+                placeholder="Môn học"
+                // optionFilterProp="children"
                 value={this.state.typeQuestion}
                 onChange={this.onChangeMonHoc}
-                filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                // filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
               >
                 {listMonHoc.map(monHoc => (
                   <Option value={monHoc.id} key={monHoc.id}>{monHoc.name}</Option>

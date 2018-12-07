@@ -56,3 +56,11 @@ export function deleteAnswer(answerID){
   };
   return postWithAuth(`${ApiRouter.DELETE_ANSWER}`, value);
 }
+
+export function editAnswer(answerID, content){
+  let value = {
+    AnswerId : answerID,
+    Content: content
+  };
+  return postWithAuth(`${ApiRouter.EDIT_ANSWER}`, value);
+}

@@ -6,9 +6,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {deleteAnswer} from '../../services/apis/UserService'
+import {deleteAnswer, editAnswer} from '../../services/apis/UserService'
 
-import { Row, Col, Dropdown, Menu} from 'antd';
+import {Row, Col, Dropdown, Menu, Button, Input} from 'antd';
 // import './style.css'
 import imgAva from "../Question/images/ava.jpg";
 /* eslint-disable react/prefer-stateless-function */
@@ -17,6 +17,8 @@ class EachAnswer extends React.PureComponent {
     super(props);
     this.state={
       showTextEditQuestion: false,
+      showFormEditAnswer: false,
+      editAnswer: this.props.answer.Content
     };
   }
 
@@ -44,11 +46,40 @@ class EachAnswer extends React.PureComponent {
   }
 
   onEditAnswer = () => {
+    this.setState({
+      showFormEditAnswer: true
+    })
+  }
+
+  onExitEdit = () => {
+    this.setState({
+      showFormEditAnswer: false
+    })
+  }
+
+  onChangeAnswer = (e) => {
+    this.setState({
+      editAnswer: e.target.value
+    })
+  }
+
+  onEditCauHoi = () => {
+    if (this.state.editAnswer){
+      editAnswer(this.props.answer.AnswerId, this.state.editAnswer).then(
+        res => {
+          if (res.Status === 200){
+            this.onExitEdit();
+            this.props.getListMyQuestion()
+          }
+        }
+      )
+    }
 
   }
 
   render() {
     const {answer} = this.props;
+    console.log(answer);
     const menuAnswerEdit = (
       <Menu>
         <Menu.Item key="0">
@@ -65,26 +96,60 @@ class EachAnswer extends React.PureComponent {
         <Col span={2}>
           <img src={imgAva} className="imgAva" alt="Avaar"/>
         </Col>
-        <Col
-          span={21}
-          onMouseEnter={this.showTextEditQuestion}
-          onMouseLeave={this.hideTextEditQuestion}
-        >
-          <Col className="answerContainer" span={22}>
-            <span className="authAnswer">{answer.User}</span>
-            <span>{answer.Content}</span>
-          </Col>
-          {
-            this.state.showTextEditQuestion ?
-              <Col span={1} offset={1} className="textEditQuestion">
-                <Dropdown overlay={menuAnswerEdit} trigger={['click']}>
-                  <span className="textEdit">Edit</span>
-                </Dropdown>
+        {
+          this.state.showFormEditAnswer
+            ?
+            <Row>
+              <Col span={24}>
+                <Input
+                  className="input"
+                  onChange={this.onChangeAnswer}
+                  value={this.state.editAnswer}
+                />
               </Col>
-              :
-              null
-          }
-        </Col>
+              <Col span={24}>
+                <Row>
+                  <Button
+                    type="primary"
+                    style={{ width: "20%", margin: "10px"}}
+                    onClick={this.onEditCauHoi}
+                  >
+                    Sửa
+                  </Button>
+
+                  <Button
+                    type="primary"
+                    style={{ width: "20%", margin: "10px"}}
+                    onClick={this.onExitEdit}
+                  >
+                    Hủy
+                  </Button>
+                </Row>
+              </Col>
+            </Row>
+            :
+            <Col
+              span={21}
+              onMouseEnter={this.showTextEditQuestion}
+              onMouseLeave={this.hideTextEditQuestion}
+            >
+              <Col className="answerContainer" span={22}>
+                <span className="authAnswer">{answer.User}</span>
+                <span>{answer.Content}</span>
+              </Col>
+              {
+                this.state.showTextEditQuestion ?
+                  <Col span={1} offset={1} className="textEditQuestion">
+                    <Dropdown overlay={menuAnswerEdit} trigger={['click']}>
+                      <span className="textEdit">Edit</span>
+                    </Dropdown>
+                  </Col>
+                  :
+                  null
+              }
+            </Col>
+        }
+
       </Row>
     )
 
