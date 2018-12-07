@@ -74,11 +74,10 @@ class EditQuestion extends React.PureComponent {
     } else {
       editQuestion(contentQuestion, typeQuestion, this.props.postId)
         .then(res => {
-          // this.setState({
-          //   contentQuestion: null,
-          //   typeQuestion: null
-          // });
-          console.log(res);
+          this.setState({
+            contentQuestion: null,
+            typeQuestion: null
+          });
           if (res.Status === 200){
             this.props.getListMyQuestion();
             this.onExitEdit();

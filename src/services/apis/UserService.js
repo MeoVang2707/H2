@@ -39,6 +39,20 @@ export function editQuestion(content, theme, postId){
     Theme: theme,
     PostId: postId
   };
-  console.log('value', value);
   return postWithAuth(`${ApiRouter.EDIT_QUESTION}`, value);
+}
+
+export function addAnswer(content, postID){
+  let value = {
+    Content : content,
+    PostId : postID
+  };
+  return postWithAuth(`${ApiRouter.ADD_ANSWER}`, value);
+}
+
+export function deleteAnswer(answerID){
+  let value = {
+    AnswerId : answerID,
+  };
+  return postWithAuth(`${ApiRouter.DELETE_ANSWER}`, value);
 }

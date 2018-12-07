@@ -5,20 +5,20 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import {Input, Row, Col, Dropdown, Menu, Divider} from 'antd';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import {deleteQuestion} from '../../services/apis/UserService'
+import {deleteQuestion, addAnswer} from '../../services/apis/UserService'
 
 import EditQuestion from '../EditQuestion'
+import EachAnswer from '../EachAnswer'
 import imgAva from './images/ava.jpg';
 import imgLike from './images/like.png';
 import imgLiked from './images/liked.png';
 import imgShare from './images/share.png';
 import imgComment from './images/Comment.png';
-import "./style.css";
+import "./style.scss";
 
 /* eslint-disable react/prefer-stateless-function */
 class Question extends React.PureComponent {
@@ -27,11 +27,15 @@ class Question extends React.PureComponent {
     this.state={
       edited: false,
       liked: false,
-      listAnswers: []
+      listAnswers: [],
+      newAnswer: null,
     };
     this.onXemThem = this.onXemThem.bind(this);
     this.onHideQuestion = this.onHideQuestion.bind(this);
     this.onExitEdit = this.onExitEdit.bind(this);
+    this.renderAnswer = this.renderAnswer.bind(this);
+    this.onAddAnswer = this.onAddAnswer.bind(this);
+    this.deleteOneAnswer = this.deleteOneAnswer.bind(this);
   }
 
   onToggleLike = () => {
@@ -49,7 +53,7 @@ class Question extends React.PureComponent {
     }
   }
 
-  renderAnswer = answers => {
+  renderAnswer = (answers) => {
     if (this.state.listAnswers.length === 0) {
       return null
     }
@@ -57,18 +61,11 @@ class Question extends React.PureComponent {
       <div>
         <Divider style={{marginBottom: "2px", marginTop: "15px"}} />
         {
-          this.state.listAnswers.map((answer,index) => (
-            <Row type="flex" align="middle" style={{marginTop: "8px"}} key={index}>
-              <Col span={2}>
-                <img src={imgAva} className="imgAva" alt="Avaar"/>
-              </Col>
-              <Col span={21} >
-                <div className="answerContainer">
-                  <span className="authAnswer">{answer.User}</span>
-                  <span>{answer.Content}</span>
-                </div>
-              </Col>
-            </Row>
+          this.state.listAnswers.map(answer => (
+            <EachAnswer answer={answer}
+                        deleteOneAnswer={answer => this.deleteOneAnswer(answer)}
+                        key={answer.AnswerId}
+            />
           ))
         }
 
@@ -114,10 +111,51 @@ class Question extends React.PureComponent {
     })
   }
 
+  onAddAnswer = (event) => {
+    if(event.key === 'Enter'){
+      if (this.state.newAnswer){
+        addAnswer(this.state.newAnswer, this.props.question.PostId).then(
+          res => {
+            if (res.Status === 200) {
+              this.setState(state => ({
+                newAnswer: null,
+                listAnswers: [res.answer, ...state.listAnswers]
+              }))
+            }
+            else {
+              alert("Error")
+            }
+          }
+        )
+      } else {
+        alert('Input error')
+      }
+    }
+  }
+
+  onChangeAnswer = (e) => {
+    this.setState({
+      newAnswer: e.target.value
+    })
+  }
+
   onExitEdit = () => {
     this.setState({
       edited: false
     })
+  }
+
+  deleteOneAnswer = (answer) => {
+    // const index = this.state.listAnswers.indexOf(answer);
+    const x = [...this.state.listAnswers];
+    const index = x.indexOf(answer);
+    if (index >= 0){
+      x.splice(index, 1);
+      this.setState({
+        listAnswers: x,
+      })
+    }
+    // this.props.getListMyQuestion();
   }
 
   render() {
@@ -180,7 +218,13 @@ class Question extends React.PureComponent {
             <img src={imgAva} className="imgAva" alt="Avaar" />
           </Col>
           <Col span={21}>
-            <Input placeholder="Trả lời hay nhận quà ngay" className="input"/>
+            <Input
+              placeholder="Trả lời hay nhận quà ngay"
+              className="input"
+              onKeyPress={this.onAddAnswer}
+              onChange={this.onChangeAnswer}
+              value={this.state.newAnswer}
+            />
           </Col>
         </Row>
 
