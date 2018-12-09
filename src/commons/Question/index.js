@@ -9,7 +9,8 @@ import React from 'react';
 import {Input, Row, Col, Dropdown, Menu, Divider} from 'antd';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import {deleteQuestion, addAnswer} from '../../services/apis/UserService'
+import {deleteQuestion, addAnswer, getQuestion} from '../../services/apis/UserService'
+import {getStorage} from '../../services/StorageService';
 
 import EditQuestion from '../EditQuestion'
 import EachAnswer from '../EachAnswer'
@@ -20,6 +21,41 @@ import imgShare from './images/share.png';
 import imgComment from './images/Comment.png';
 import "./style.scss";
 
+const listMonHoc=[
+  {
+    name: 'Toán',
+    id: 'toan'
+  },
+  {
+    name: 'Vật lý',
+    id: 'vatLy'
+  },
+  {
+    name: 'Hóa học',
+    id: 'hoaHoc'
+  },
+  {
+    name: 'Sinh học',
+    id: 'sinhHoc'
+  },
+  {
+    name: 'Văn học',
+    id: 'vanHoc'
+  },
+  {
+    name: 'Tiếng Anh',
+    id: 'tiengAnh'
+  },
+  {
+    name: 'Địa lý',
+    id: 'diaLy'
+  },
+  {
+    name: 'Lịch sử',
+    id: 'lichSu'
+  },
+];
+
 /* eslint-disable react/prefer-stateless-function */
 class Question extends React.PureComponent {
   constructor(props){
@@ -29,7 +65,9 @@ class Question extends React.PureComponent {
       liked: false,
       listAnswers: [],
       newAnswer: null,
-      pureListAnswer: this.props.question.answers
+      pureListAnswer: this.props.question.answers,
+      question: null,
+      userId: getStorage('userId')
     };
     this.onXemThem = this.onXemThem.bind(this);
     this.onHideQuestion = this.onHideQuestion.bind(this);
@@ -37,6 +75,7 @@ class Question extends React.PureComponent {
     this.renderAnswer = this.renderAnswer.bind(this);
     this.onAddAnswer = this.onAddAnswer.bind(this);
     this.deleteOneAnswer = this.deleteOneAnswer.bind(this);
+    this.getInforQuestion = this.getInforQuestion.bind(this);
   }
 
   onToggleLike = () => {
@@ -46,17 +85,14 @@ class Question extends React.PureComponent {
   };
 
   componentDidMount(){
-    const answers = this.state.pureListAnswer;
-    if (answers.length > 3){
-      this.onHideQuestion(answers)
-    } else {
-      this.onXemThem(answers)
-    }
+    this.getInforQuestion();
+    // const answers = this.state.pureListAnswer;
+
   }
 
   renderAnswer = () => {
     const answers = this.state.pureListAnswer
-    if (this.state.listAnswers.length === 0) {
+    if (answers.length === 0) {
       return null
     }
     const x =
@@ -67,6 +103,7 @@ class Question extends React.PureComponent {
             <EachAnswer answer={answer}
                         deleteOneAnswer={answer => this.deleteOneAnswer(answer)}
                         getListMyQuestion={this.props.getListMyQuestion}
+                        getInforQuestion={this.getInforQuestion}
                         key={answer.AnswerId}
             />
           ))
@@ -74,27 +111,26 @@ class Question extends React.PureComponent {
 
         {
           this.state.listAnswers.length >= answers.length ? null :
-            <span className="textEdit" onClick={() => this.onXemThem()}>Xem Thêm</span>
+            <span className="textEdit" onClick={() => this.onXemThem(answers)}>Xem Thêm</span>
         }
 
         {
           this.state.listAnswers.length < answers.length || answers.length <= 3 ? null :
-            <span className="textEdit" onClick={() => this.onHideQuestion()}>Ẩn</span>
+            <span className="textEdit" onClick={() => this.onHideQuestion(answers)}>Ẩn</span>
         }
       </div>
     return x
   };
 
-  onHideQuestion = () => {
-
+  onHideQuestion = (answers) => {
     this.setState({
-      listAnswers: this.state.pureListAnswer.slice(0,3)
+      listAnswers: answers.slice(0,3)
     });
   };
 
-  onXemThem = () => {
+  onXemThem = (answers) => {
     this.setState({
-      listAnswers: this.state.pureListAnswer
+      listAnswers: answers
     });
   };
 
@@ -123,7 +159,8 @@ class Question extends React.PureComponent {
             if (res.Status === 200) {
               this.setState(state => ({
                 newAnswer: null,
-                listAnswers: [res.answer, ...state.listAnswers]
+                listAnswers: [res.answer, ...state.listAnswers],
+                pureListAnswer: [res.answer, ...state.listAnswers]
               }))
             }
             else {
@@ -163,8 +200,28 @@ class Question extends React.PureComponent {
     }
   }
 
+  getInforQuestion = () => {
+    const postId = this.props.question.PostId;
+    getQuestion(postId).then(
+      res => {
+        if (res.Status === 200){
+          const answers = res.Value.answers;
+          this.setState({
+            question: res.Value,
+            pureListAnswer: res.Value.answers
+          });
+          if (answers.length > 3){
+            this.onHideQuestion(answers)
+          } else {
+            this.onXemThem(answers)
+          }
+        }
+      }
+    )
+  }
+
   render() {
-    const {question} = this.props;
+    const {question} = this.state;
     const menuEdit = (
       <Menu>
         <Menu.Item key="0">
@@ -175,67 +232,87 @@ class Question extends React.PureComponent {
         </Menu.Item>
       </Menu>
     );
-    return (
-      <div className="question">
-        <Row type="flex" align="middle">
-          <Col span={3}>
-            <img src={imgAva} className="imgAvaQuestion" alt="Avaar"/>
-          </Col>
-          <Col span = {20}>
-            <Row style={{color:"#1D4077", fontWeight:"bold"}}>Trần Trung Hiếu</Row>
-            <Row style={{color:"#8C8C8C"}}>
-              { moment.utc(question.UpdatedDate).format('DD MM YYYY, HH:mm:ss')}
-            </Row>
-          </Col>
-          <Col span={1}>
-            <Dropdown overlay={menuEdit} trigger={['click']}>
-              <span className="textEdit">Edit</span>
-            </Dropdown>
-          </Col>
-        </Row>
-        {
-          this.state.edited ?
-            <EditQuestion
-              content={question.information.Content}
-              type={question.Theme}
-              postId={question.PostId}
-              getListMyQuestion={this.props.getListMyQuestion}
-              onExitEdit={this.onExitEdit}
-            />
-            :
-            <Row style={{marginTop: "10px", marginBottom: "10px"}}>
-              <span style={{fontSize:"18px", color:"#000000"}}>
-                {question.information.Content}
-              </span>
-            </Row>
-        }
-        <Row type="flex" align="middle" style={{marginBottom: '20px'}}>
-          <Col span={4}>
-            <Row type="flex" justify="space-between">
-              <img src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike} alt="Like"/>
-              <img src={imgShare} alt="Share"/>
-              <img src={imgComment} alt="Comment"/>
-            </Row>
-          </Col>
-        </Row>
-        <Row type="flex" align="middle">
-          <Col span={2}>
-            <img src={imgAva} className="imgAva" alt="Avaar" />
-          </Col>
-          <Col span={21}>
-            <Input
-              placeholder="Trả lời hay nhận quà ngay"
-              className="input"
-              onKeyPress={this.onAddAnswer}
-              onChange={this.onChangeAnswer}
-              value={this.state.newAnswer}
-            />
-          </Col>
-        </Row>
+    if (question){
+      return (
+        <div className="question">
+          <Row type="flex" align="middle">
+            <Col span={3}>
+              <img src={imgAva} className="imgAvaQuestion" alt="Avaar"/>
+            </Col>
+            <Col span = {20}>
+              <Row style={{color:"#1D4077", fontWeight:"bold"}}>{question.User}</Row>
+              <Row style={{color:"#8C8C8C"}}>
+                { moment(question.UpdatedDate).format('DD MM YYYY, HH:mm:ss')}
+              </Row>
+            </Col>
+            {
+              this.state.userId === question.UserId
+                ?
+                <Col span={1}>
+                  <Dropdown overlay={menuEdit} trigger={['click']}>
+                    <span className="textEdit">Edit</span>
+                  </Dropdown>
+                </Col>
+                :
+                null
+            }
+          </Row>
+          {
+            this.state.edited ?
+              <EditQuestion
+                content={question.information.Content}
+                type={question.Theme}
+                postId={question.PostId}
+                getInforQuestion={this.getInforQuestion}
+                onExitEdit={this.onExitEdit}
+              />
+              :
+              <Row style={{marginTop: "10px", marginBottom: "10px"}}>
+                <Row style={{color:"#1D4077", fontWeight:"bold"}}>
+                  {listMonHoc.map(monHoc => {
+                    if (monHoc.id === question.Theme){
+                      return monHoc.name
+                    } else {
+                      return null
+                    }
+                  })}
+                </Row>
+                <span style={{fontSize:"18px", color:"#000000"}}>
+                  {question.information.Content}
+                </span>
+              </Row>
+          }
+          <Row type="flex" align="middle" style={{marginBottom: '20px'}}>
+            <Col span={4}>
+              <Row type="flex" justify="space-between">
+                <img src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike} alt="Like"/>
+                <img src={imgShare} alt="Share"/>
+                <img src={imgComment} alt="Comment"/>
+              </Row>
+            </Col>
+          </Row>
+          <Row type="flex" align="middle">
+            <Col span={2}>
+              <img src={imgAva} className="imgAva" alt="Avaar" />
+            </Col>
+            <Col span={21}>
+              <Input
+                placeholder="Trả lời hay nhận quà ngay"
+                className="input"
+                onKeyPress={this.onAddAnswer}
+                onChange={this.onChangeAnswer}
+                value={this.state.newAnswer}
+              />
+            </Col>
+          </Row>
 
-        {this.renderAnswer()}
-      </div>
-    );
+          {this.renderAnswer()}
+        </div>
+      );
+    } else {
+      return null
+    }
+
   }
 }
 

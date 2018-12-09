@@ -35,6 +35,7 @@ export default class Login extends React.Component {
         .then(res => {
             set('authorization',res.Token);
             set('username',username);
+            set('userId', res.UserId);
             this.props.onLogin(username);
             // this.context.router.history.push(`/home`)
         });

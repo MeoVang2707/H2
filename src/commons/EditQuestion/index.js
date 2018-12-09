@@ -49,7 +49,6 @@ class EditQuestion extends React.PureComponent {
   constructor(props){
     super(props);
     this.state={
-      tabSelected: 'week',
       contentQuestion: this.props.content,
       typeQuestion: this.props.type
     };
@@ -79,7 +78,7 @@ class EditQuestion extends React.PureComponent {
             typeQuestion: null
           });
           if (res.Status === 200){
-            this.props.getListMyQuestion();
+            this.props.getInforQuestion();
             this.onExitEdit();
             alert('Thành công');
           }
@@ -143,7 +142,7 @@ class EditQuestion extends React.PureComponent {
 }
 
 EditQuestion.propTypes = {
-  getListMyQuestion: PropTypes.func,
+  getInforQuestion: PropTypes.func,
   content: PropTypes.string,
   type: PropTypes.string,
   postId: PropTypes.string,

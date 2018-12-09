@@ -64,3 +64,10 @@ export function editAnswer(answerID, content){
   };
   return postWithAuth(`${ApiRouter.EDIT_ANSWER}`, value);
 }
+
+export function getQuestion(postId){
+  let value = {
+    PostId : postId,
+  };
+  return postWithAuth(`${ApiRouter.GET_QUESTION}`, value);
+}

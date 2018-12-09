@@ -51,7 +51,7 @@ class AddQuestion extends React.PureComponent {
     this.state={
       tabSelected: 'week',
       contentQuestion: null,
-      typeQuestion: null,
+      typeQuestion: "Môn học",
     };
   }
 
@@ -69,14 +69,14 @@ class AddQuestion extends React.PureComponent {
 
   onSubmitCauHoi = () => {
     const {contentQuestion, typeQuestion} = this.state;
-    if (!contentQuestion || !typeQuestion){
+    if (!contentQuestion || typeQuestion==="Môn học"){
       alert('Empty Error');
     } else {
       addQuestion(contentQuestion, typeQuestion)
         .then(res => {
           this.setState({
             contentQuestion: null,
-            typeQuestion: null
+            typeQuestion: "Môn học"
           });
           if (res.Status === 200){
             this.props.getListMyQuestion();

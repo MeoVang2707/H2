@@ -6,9 +6,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {deleteAnswer, editAnswer} from '../../services/apis/UserService'
-
 import {Row, Col, Dropdown, Menu, Button, Input} from 'antd';
+
+import {deleteAnswer, editAnswer} from '../../services/apis/UserService'
+import {getStorage} from '../../services/StorageService';
+
 // import './style.css'
 import imgAva from "../Question/images/ava.jpg";
 /* eslint-disable react/prefer-stateless-function */
@@ -18,14 +20,17 @@ class EachAnswer extends React.PureComponent {
     this.state={
       showTextEditQuestion: false,
       showFormEditAnswer: false,
-      editAnswer: this.props.answer.Content
+      editAnswer: this.props.answer.Content,
+      userId: getStorage('userId')
     };
   }
 
   showTextEditQuestion = () => {
-    this.setState({
-      showTextEditQuestion: true
-    })
+    if (this.state.userId === this.props.answer.UserId){
+      this.setState({
+        showTextEditQuestion: true
+      })
+    }
   }
 
   hideTextEditQuestion = () => {
@@ -39,7 +44,8 @@ class EachAnswer extends React.PureComponent {
       res => {
         if (res.Status === 200){
           alert("thành công");
-          this.props.deleteOneAnswer(this.props.answer)
+          // this.props.deleteOneAnswer(this.props.answer)
+          this.props.getInforQuestion()
         }
       }
     )
@@ -63,13 +69,13 @@ class EachAnswer extends React.PureComponent {
     })
   }
 
-  onEditCauHoi = () => {
+  onEditAnswerAPI = () => {
     if (this.state.editAnswer){
       editAnswer(this.props.answer.AnswerId, this.state.editAnswer).then(
         res => {
           if (res.Status === 200){
+            this.props.getInforQuestion();
             this.onExitEdit();
-            this.props.getListMyQuestion()
           }
         }
       )
@@ -79,7 +85,6 @@ class EachAnswer extends React.PureComponent {
 
   render() {
     const {answer} = this.props;
-    console.log(answer);
     const menuAnswerEdit = (
       <Menu>
         <Menu.Item key="0">
@@ -112,7 +117,7 @@ class EachAnswer extends React.PureComponent {
                   <Button
                     type="primary"
                     style={{ width: "20%", margin: "10px"}}
-                    onClick={this.onEditCauHoi}
+                    onClick={this.onEditAnswerAPI}
                   >
                     Sửa
                   </Button>
@@ -158,7 +163,8 @@ class EachAnswer extends React.PureComponent {
 
 EachAnswer.propTypes = {
   answer: PropTypes.object,
-  deleteOneAnswer: PropTypes.func
+  deleteOneAnswer: PropTypes.func,
+  getInforQuestion: PropTypes.func
 };
 
 export default EachAnswer;
