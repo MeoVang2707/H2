@@ -18,6 +18,10 @@ export function getMyQuestion(){
   return getWithAuth(`${ApiRouter.MY_QUESTION}`);
 }
 
+export function getProfile(){
+  return getWithAuth(`${ApiRouter.GET_PROFILE}`);
+}
+
 export function addQuestion(content, type){
   let value = {
     Content : content,

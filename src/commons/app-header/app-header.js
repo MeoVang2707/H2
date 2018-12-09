@@ -76,8 +76,12 @@ export default class AppHeader extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight >
-            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-success btn-block'>{titleBt.latest}</button></li>
-            <li style={{width: '160px', padding: '8px'}}><button  className='btn btn-danger btn-block'>{titleBt.bestquestion}</button></li>
+            <li style={{width: '160px', padding: '8px'}}>
+              <button  className='btn btn-success btn-block'>{titleBt.latest}</button>
+            </li>
+            <li style={{width: '160px', padding: '8px'}}>
+              <button  className='btn btn-danger btn-block'>{titleBt.bestquestion}</button>
+            </li>
             <li style={{width: '160px', padding: '8px'}}>
               <Link to='/profile' style={{padding: 0}}>
                 <button  className='btn btn-default btn-block'>
@@ -101,8 +105,8 @@ export default class AppHeader extends React.Component {
                       <FormControl type="text" placeholder="Tìm kiếm gì đó " />
                     </FormGroup>{' '}
                     <Button type="submit"> <span><i className="fa fa-search" style={{ 'fontSize': '18px' }}></i> </span></Button>
-                  
-                  </Navbar.Form> 
+
+                  </Navbar.Form>
               {
                 isLogin ?
                   <NavDropdown

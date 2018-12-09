@@ -17,6 +17,7 @@ import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
 import AddQuestion from '../../commons/AddQuestion'
+import MyInfor from '../../commons/MyInfor'
 import './style.css';
 /* eslint-disable react/prefer-stateless-function */
 
@@ -25,7 +26,8 @@ export class Profile extends React.PureComponent {
     super(props);
     this.state={
       listQuestion: [],
-      token: getStorage('authorization')
+      token: getStorage('authorization'),
+      numberPost: 0
     };
     this.getListMyQuestion =this.getListMyQuestion.bind(this);
   }
@@ -36,9 +38,14 @@ export class Profile extends React.PureComponent {
   getListMyQuestion(){
     getMyQuestion()
       .then(res => {
-        this.setState({
-          listQuestion: res.myQuestion,
-        })
+        if (res.Status === 200){
+          this.setState({
+            listQuestion: res.myQuestion,
+            numberPost: res.myQuestion.length
+          })
+        } else {
+          console.log('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+        }
       })
   }
 
@@ -55,7 +62,7 @@ export class Profile extends React.PureComponent {
         </Row>
 
         <Row>
-          <Col span={6}>
+          <Col span={6} offset={1}>
             <Row style={{margin: '20px'}}>
               <XepHang />
             </Row>
@@ -63,17 +70,23 @@ export class Profile extends React.PureComponent {
               <ThongKe />
             </Row>
           </Col>
-          <Col span={14} style={{padding: "10px"}}>
-            <Col span={18}>
+          <Col span={12} style={{padding: "10px"}}>
+            <Col span={22}>
               <AddQuestion getListMyQuestion={this.getListMyQuestion}/>
             </Col>
-            <Col span={18}>
+            <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
                   <Question question={question} getListMyQuestion={this.getListMyQuestion} />
                 </Row>
               ))}
             </Col>
+          </Col>
+
+          <Col span={5}>
+            <Row style={{margin: '20px'}}>
+              <MyInfor numberPost={this.state.numberPost} />
+            </Row>
           </Col>
         </Row>
       </div>
