@@ -7,9 +7,10 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
+import {Link} from "react-router-dom";
+
 import {Menu} from 'antd';
 import {listMonHoc} from "../../utils/constant";
-
 // import './style.css';
 
 /* eslint-disable react/prefer-stateless-function */
@@ -24,7 +25,7 @@ class MenuHoiHay extends React.PureComponent {
       >
         {listMonHoc.map(monHoc => (
             <Menu.Item key={monHoc.id}>
-              <span>{monHoc.name}</span>
+              <Link to={"/monhoc/"+monHoc.id}>{monHoc.name}</Link>
             </Menu.Item>
           ))
         }

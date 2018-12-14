@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div>
         {/*<Row style={{position: 'fixed', zIndex: '1000'}}>*/}
-          <AppHeader reloadHomePage={this.reloadHomePage} />
+        <AppHeader reloadHomePage={this.reloadHomePage} />
         {/*</Row>*/}
         <GoogleAds />
         <Promotion />

@@ -1,36 +1,45 @@
+/**
+ *
+ * Profile
+ *
+ */
 
 import React from 'react';
+// import { connect,  } from 'react-redux';
+// import { compose } from 'redux';
 import { Row, Col } from 'antd';
 import { Redirect } from 'react-router-dom';
 
+import AppHeader from '../../commons/app-header/app-header';
 import {getStorage} from '../../services/StorageService'
-import {getListQuestion} from '../../services/apis/UserService'
+import {getListQuestionByTheme} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
-import MenuHoiHay from '../../commons/Menu'
-import AddQuestion from "../../commons/AddQuestion";
-import Question from "../../commons/Question";
-// import './style.css';
+import Question from '../../commons/Question'
+import AddQuestion from '../../commons/AddQuestion';
+import GoogleAds from "../../commons/google-ads";
+import Promotion from "../../commons/promotion";
+import MenuHoiHay from "../../commons/Menu";
 /* eslint-disable react/prefer-stateless-function */
 
-export class Profile extends React.PureComponent {
+export class MonHoc extends React.PureComponent {
   constructor(props){
     super(props);
     this.state={
       listQuestion: [],
       token: getStorage('authorization'),
-      numberPost: 0
     };
     this.getListAllQuestion =this.getListAllQuestion.bind(this);
   }
   componentDidMount(){
     this.getListAllQuestion();
+    console.log('monHoc', );
   }
 
   getListAllQuestion(){
-    getListQuestion(1)
+    getListQuestionByTheme(1, this.props.match.params.monHoc)
       .then(res => {
-        console.log('trangChu', res);
+        console.log('MonHoc', res);
         if (res.Status === 200){
           this.setState({
             listQuestion: res.listQuestion,
@@ -43,8 +52,17 @@ export class Profile extends React.PureComponent {
   }
 
   render() {
+    if (!this.state.token) {
+      return (
+        <Redirect href="/" to="/" />
+      );
+    }
     return (
       <div>
+          <AppHeader />
+          <GoogleAds />
+          <Promotion />
+
         <Row>
           <Col span={3} offset={1}>
             <Row style={{margin: '20px'}}>
@@ -53,9 +71,6 @@ export class Profile extends React.PureComponent {
           </Col>
 
           <Col span={12} style={{padding: "10px"}} offset={1}>
-            <Col span={22}>
-              <AddQuestion getListAllQuestion={this.getListAllQuestion}/>
-            </Col>
             <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
@@ -79,7 +94,7 @@ export class Profile extends React.PureComponent {
   }
 }
 
-Profile.propTypes = {};
+MonHoc.propTypes = {};
 
 
-export default Profile;
+export default MonHoc;
