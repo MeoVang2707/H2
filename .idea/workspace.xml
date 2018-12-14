@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e523d7a1-3964-476f-b96a-ad0fd92bd2af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/screens/MonHoc/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commons/Menu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Menu/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/app-footer/app-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/app-footer/app-footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/promotion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/promotion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/MonHoc/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MonHoc/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/index.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,7 +22,7 @@
     <session id="-1561279788">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="3" />
@@ -33,15 +33,16 @@
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="11" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="93" />
+          <entry key="js" value="95" />
           <entry key="json" value="5" />
           <entry key="jsx" value="19" />
           <entry key="scss" value="5" />
@@ -53,7 +54,7 @@
           <entry key="CSS" value="11" />
           <entry key="JSON" value="5" />
           <entry key="JSX Harmony" value="19" />
-          <entry key="JavaScript" value="93" />
+          <entry key="JavaScript" value="95" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SCSS" value="5" />
           <entry key="TypeScript" value="1" />
@@ -62,7 +63,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="182" />
-          <entry key="js" value="14551" />
+          <entry key="js" value="15166" />
           <entry key="json" value="5" />
           <entry key="jsx" value="746" />
           <entry key="scss" value="36" />
@@ -73,13 +74,13 @@
           <entry key="CSS" value="182" />
           <entry key="JSON" value="5" />
           <entry key="JSX Harmony" value="746" />
-          <entry key="JavaScript" value="14551" />
+          <entry key="JavaScript" value="15166" />
           <entry key="SCSS" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="15" />
+          <entry key="ESLintLanguageService" value="16" />
           <entry key="TypeScriptServerServiceImpl" value="1" />
         </counts>
       </usages-collector>
@@ -90,17 +91,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="186">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+              <folding>
+                <element signature="e#176#201#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
+            <state relative-caret-position="370">
+              <caret line="38" column="21" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -117,11 +112,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/MonHoc/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
+            <state relative-caret-position="255">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="e#133#165#0" expanded="true" />
-                <element signature="e#2496#2714#0" />
+                <element signature="e#592#641#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/promotion/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,14 +162,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+            <state relative-caret-position="578">
+              <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
                 <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
                 <element signature="n#!!block;n#getListAllQuestion#0;n#Profile#0" />
                 <element signature="e#1377#1510#0" />
-                <element signature="e#2026#2244#0" />
               </folding>
             </state>
           </provider>
@@ -171,7 +177,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="234">
               <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="39" />
             </state>
           </provider>
@@ -180,8 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+            <state relative-caret-position="833">
+              <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -193,12 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>deleteOneComment</find>
-      <find>anser</find>
-      <find>onChangeComment</find>
-      <find>Answer</find>
-      <find>tài</find>
-      <find>addComment</find>
       <find>getInforQuestion</find>
       <find>onDeleteComment</find>
       <find>EachC</find>
@@ -215,7 +215,6 @@
       <find>UserId ==</find>
       <find>token</find>
       <find>Login</find>
-      <find>context</find>
       <find>this.props</find>
       <find>history</find>
       <find>this.props.</find>
@@ -223,6 +222,13 @@
       <find>getListQuestion</find>
       <find>MenuHoiHay</find>
       <find>getListQuestionByTheme</find>
+      <find>redire</find>
+      <find>img01</find>
+      <find>this.conte</find>
+      <find>this.con</find>
+      <find>Redi</find>
+      <find>context</find>
+      <find>this</find>
     </findStrings>
     <replaceStrings>
       <replace>showComment</replace>
@@ -262,13 +268,13 @@
         <option value="$PROJECT_DIR$/src/commons/Question/index.js" />
         <option value="$PROJECT_DIR$/src/commons/AddQuestion/index.js" />
         <option value="$PROJECT_DIR$/src/commons/EditQuestion/index.js" />
-        <option value="$PROJECT_DIR$/src/commons/promotion/index.js" />
         <option value="$PROJECT_DIR$/src/commons/app-header/app-header.js" />
         <option value="$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx" />
-        <option value="$PROJECT_DIR$/src/commons/Menu/index.js" />
         <option value="$PROJECT_DIR$/src/containers/App.jsx" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/screens/home/index.jsx" />
+        <option value="$PROJECT_DIR$/src/commons/promotion/index.js" />
+        <option value="$PROJECT_DIR$/src/commons/Menu/index.js" />
         <option value="$PROJECT_DIR$/src/screens/MonHoc/index.js" />
       </list>
     </option>
@@ -302,6 +308,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -364,7 +371,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -423,18 +429,19 @@
       <workItem from="1544630072664" duration="1394000" />
       <workItem from="1544645125303" duration="4041000" />
       <workItem from="1544657063246" duration="13796000" />
-      <workItem from="1544754140129" duration="16830000" />
+      <workItem from="1544754140129" duration="17003000" />
+      <workItem from="1544799500869" duration="5346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135750000" />
+    <option name="totallyTimeSpent" value="141269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -448,7 +455,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30615383" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30461538" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -599,13 +606,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/commons/Route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/constant.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -654,34 +655,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/promotion/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="142" column="24" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#490#872#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/history.js" />
     <entry file="file://$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
@@ -690,13 +664,6 @@
             <element signature="e#603#643#0" />
             <element signature="e#666#793#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -713,10 +680,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
+          <folding>
+            <element signature="e#1#27#0" expanded="true" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
+            <element signature="n#!!block;n#getListAllQuestion#0;n#Profile#0" />
+            <element signature="e#1377#1510#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
+        <state relative-caret-position="370">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -743,51 +747,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
+    <entry file="file://$PROJECT_DIR$/src/commons/promotion/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+        <state relative-caret-position="136">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+        <state relative-caret-position="186">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
-            <element signature="e#1#27#0" expanded="true" />
-            <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
-            <element signature="n#!!block;n#getListAllQuestion#0;n#Profile#0" />
-            <element signature="e#1377#1510#0" />
-            <element signature="e#2026#2244#0" />
+            <element signature="e#176#201#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/MonHoc/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="72" column="57" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
+        <state relative-caret-position="255">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="e#133#165#0" expanded="true" />
-            <element signature="e#2496#2714#0" />
+            <element signature="e#592#641#0" expanded="true" />
           </folding>
         </state>
       </provider>

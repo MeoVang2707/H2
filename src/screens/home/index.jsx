@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Row, Col } from 'antd';
-import { Redirect } from 'react-router-dom';
 
 import {getStorage} from '../../services/StorageService'
 import {getListQuestion} from '../../services/apis/UserService'

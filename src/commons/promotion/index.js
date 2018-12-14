@@ -7,7 +7,6 @@ import {
     // NavItem
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import img01 from './images/01.jpg'
 
 export default class Promotion extends React.Component {
     static contextTypes = {

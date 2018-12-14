@@ -16,7 +16,7 @@ import {getListQuestionByTheme} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
-import AddQuestion from '../../commons/AddQuestion';
+// import AddQuestion from '../../commons/AddQuestion';
 import GoogleAds from "../../commons/google-ads";
 import Promotion from "../../commons/promotion";
 import MenuHoiHay from "../../commons/Menu";
@@ -28,18 +28,28 @@ export class MonHoc extends React.PureComponent {
     this.state={
       listQuestion: [],
       token: getStorage('authorization'),
+      monHoc: this.props.match.params.monHoc
     };
     this.getListAllQuestion =this.getListAllQuestion.bind(this);
   }
   componentDidMount(){
     this.getListAllQuestion();
-    console.log('monHoc', );
+  }
+
+  componentDidUpdate(){
+    if (this.state.monHoc !== this.props.match.params.monHoc){
+      this.getListAllQuestion();
+    }
   }
 
   getListAllQuestion(){
-    getListQuestionByTheme(1, this.props.match.params.monHoc)
+    const {monHoc} = this.props.match.params;
+    this.setState({
+      monHoc
+    });
+    console.log('xxxx', this.state.monHoc);
+    getListQuestionByTheme( monHoc, 1)
       .then(res => {
-        console.log('MonHoc', res);
         if (res.Status === 200){
           this.setState({
             listQuestion: res.listQuestion,
@@ -66,7 +76,7 @@ export class MonHoc extends React.PureComponent {
         <Row>
           <Col span={3} offset={1}>
             <Row style={{margin: '20px'}}>
-              <MenuHoiHay />
+              <MenuHoiHay getListAllQuestion={this.getListAllQuestion} />
             </Row>
           </Col>
 

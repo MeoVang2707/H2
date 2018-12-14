@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React  from 'react';
 import {
   MenuItem,
   Navbar,
@@ -8,9 +8,9 @@ import {
 } from 'react-bootstrap';
 import Login from './component/login/Login';
 import {login} from '../../api/UserRouter';
-import {set} from '../../services/StorageService';
+// import {set} from '../../services/StorageService';
 import PropTypes from 'prop-types';
-import {Redirect,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 export default class AppFooter extends React.Component {
   static contextTypes = {
     router: PropTypes.object
