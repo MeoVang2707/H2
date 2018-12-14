@@ -12,6 +12,10 @@ export let ApiRouter  = {
   VIEW_QUESTION: 'question/viewQuestion',
   GET_PROFILE: 'user/getProfile',
   MY_QUESTION: 'question/myQuestion',
+  ADD_COMMENT: 'comment/addComment',
+  EDIT_COMMENT: 'comment/editComment',
+  DELETE_COMMENT: 'comment/deleteComment',
+  VOTE_ANSWER: 'answer/voteAnswer'
 };
 
   

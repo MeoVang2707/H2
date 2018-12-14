@@ -44,9 +44,10 @@ export class Profile extends React.PureComponent {
             numberPost: res.myQuestion.length
           })
         } else {
-          console.log('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+          alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
         }
       })
+      .catch(() => alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục'));
   }
 
   render() {

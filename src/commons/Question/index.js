@@ -105,6 +105,7 @@ class Question extends React.PureComponent {
                         getListMyQuestion={this.props.getListMyQuestion}
                         getInforQuestion={this.getInforQuestion}
                         key={answer.AnswerId}
+                        voted={this.state.question.Voted}
             />
           ))
         }
@@ -205,6 +206,7 @@ class Question extends React.PureComponent {
     getQuestion(postId).then(
       res => {
         if (res.Status === 200){
+          console.log('aaaa', res);
           const answers = res.Value.answers;
           this.setState({
             question: res.Value,

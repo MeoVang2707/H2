@@ -75,3 +75,33 @@ export function getQuestion(postId){
   };
   return postWithAuth(`${ApiRouter.GET_QUESTION}`, value);
 }
+
+export function addComment(content, answerId){
+  let value = {
+    Content : content,
+    AnswerId : answerId
+  };
+  return postWithAuth(`${ApiRouter.ADD_COMMENT}`, value);
+}
+
+export function deleteComment(commentID){
+  let value = {
+    CommentId : commentID,
+  };
+  return postWithAuth(`${ApiRouter.DELETE_COMMENT}`, value);
+}
+
+export function editComment(commentID, content){
+  let value = {
+    CommentId : commentID,
+    Content: content
+  };
+  return postWithAuth(`${ApiRouter.EDIT_COMMENT}`, value);
+}
+
+export function voteAnswer(answerID){
+  let value = {
+    AnswerId: answerID,
+  };
+  return postWithAuth(`${ApiRouter.VOTE_ANSWER}`, value);
+}
