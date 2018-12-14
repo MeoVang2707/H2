@@ -16,13 +16,6 @@ export default class Login extends React.Component {
     static contextTypes = {
         router: PropTypes.object
     }
-    // getValidationState() {
-    //     const length = this.state.value.length;
-    //     if (length > 10) return 'success';
-    //     else if (length > 5) return 'warning';
-    //     else if (length > 0) return 'error';
-    //     return null;
-    // }
 
     onChangeInput(e) {
         const newValue = e.target.value;
@@ -37,15 +30,13 @@ export default class Login extends React.Component {
             set('username',username);
             set('userId', res.UserId);
             this.props.onLogin(username);
-            // this.context.router.history.push(`/home`)
+            this.props.reloadHomePage()
         });
     }
     render() {
         const {show} = this.props;
         // Render nothing if the "show" prop is false
         return (
-
-
             <Modal
                 show={show}
                 onHide={this.props.onHide}

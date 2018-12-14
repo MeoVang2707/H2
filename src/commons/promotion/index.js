@@ -7,6 +7,8 @@ import {
     // NavItem
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import img01 from './images/01.jpg'
+
 export default class Promotion extends React.Component {
     static contextTypes = {
         router: PropTypes.object
@@ -24,7 +26,7 @@ export default class Promotion extends React.Component {
         return (
             <Carousel className="promotion">
                 <Carousel.Item>
-                    {/* <img width={900} height={500} alt="900x500" src="/carousel.png" /> */}
+                     {/*<img width={900} height={500} alt="900x500" src="img01" />*/}
                     <Carousel.Caption>
                         <h3>First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>

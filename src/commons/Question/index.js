@@ -11,6 +11,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import {deleteQuestion, addAnswer, getQuestion} from '../../services/apis/UserService'
 import {getStorage} from '../../services/StorageService';
+import {listMonHoc} from "../../utils/constant";
 
 import EditQuestion from '../EditQuestion'
 import EachAnswer from '../EachAnswer'
@@ -20,41 +21,6 @@ import imgLiked from './images/liked.png';
 import imgShare from './images/share.png';
 import imgComment from './images/Comment.png';
 import "./style.scss";
-
-const listMonHoc=[
-  {
-    name: 'Toán',
-    id: 'toan'
-  },
-  {
-    name: 'Vật lý',
-    id: 'vatLy'
-  },
-  {
-    name: 'Hóa học',
-    id: 'hoaHoc'
-  },
-  {
-    name: 'Sinh học',
-    id: 'sinhHoc'
-  },
-  {
-    name: 'Văn học',
-    id: 'vanHoc'
-  },
-  {
-    name: 'Tiếng Anh',
-    id: 'tiengAnh'
-  },
-  {
-    name: 'Địa lý',
-    id: 'diaLy'
-  },
-  {
-    name: 'Lịch sử',
-    id: 'lichSu'
-  },
-];
 
 /* eslint-disable react/prefer-stateless-function */
 class Question extends React.PureComponent {

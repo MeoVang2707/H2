@@ -15,7 +15,9 @@ export let ApiRouter  = {
   ADD_COMMENT: 'comment/addComment',
   EDIT_COMMENT: 'comment/editComment',
   DELETE_COMMENT: 'comment/deleteComment',
-  VOTE_ANSWER: 'answer/voteAnswer'
+  VOTE_ANSWER: 'answer/voteAnswer',
+  LIST_QUESTION: 'question/listQuestion',
+  LIST_QUESTION_BY_THEME: 'question/listQuestionByTheme',
 };
 
   

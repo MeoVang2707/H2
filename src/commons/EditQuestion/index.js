@@ -1,47 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-
 import { Row, Col, Select, Input, Button} from 'antd';
-import './style.css'
+
+import {listMonHoc} from "../../utils/constant";
 import {editQuestion} from '../../services/apis/UserService'
+import './style.css'
 
 const { TextArea } = Input;
 const Option = Select.Option;
-const listMonHoc=[
-  {
-    name: 'Toán',
-    id: 'toan'
-  },
-  {
-    name: 'Vật lý',
-    id: 'vatLy'
-  },
-  {
-    name: 'Hóa học',
-    id: 'hoaHoc'
-  },
-  {
-    name: 'Sinh học',
-    id: 'sinhHoc'
-  },
-  {
-    name: 'Văn học',
-    id: 'vanHoc'
-  },
-  {
-    name: 'Tiếng Anh',
-    id: 'tiengAnh'
-  },
-  {
-    name: 'Địa lý',
-    id: 'diaLy'
-  },
-  {
-    name: 'Lịch sử',
-    id: 'lichSu'
-  },
-];
 
 
 /* eslint-disable react/prefer-stateless-function */

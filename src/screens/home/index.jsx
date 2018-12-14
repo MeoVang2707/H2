@@ -1,29 +1,85 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-// import { Button,FormGroup,InputGroup,FormControl } from 'react-bootstrap';
-class Home extends Component {
 
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-        };
-    }
+import React from 'react';
+import { Row, Col } from 'antd';
+import { Redirect } from 'react-router-dom';
 
-    static contextTypes = {
-        router: PropTypes.object
-    }
-    // onClickBtn() {
-    //
-    // }
-    render() {
-        // const {titleSearch , textBtSearch} = this.state;
-        return (
-            <div>
-                <div className="home">
-                </div>
-            </div>
-        );
-    }
+import {getStorage} from '../../services/StorageService'
+import {getListQuestion} from '../../services/apis/UserService'
+import ThongKe from '../../commons/ThongKe';
+import XepHang from '../../commons/XepHang'
+import MenuHoiHay from '../../commons/Menu'
+import AddQuestion from "../../commons/AddQuestion";
+import Question from "../../commons/Question";
+// import './style.css';
+/* eslint-disable react/prefer-stateless-function */
+
+export class Profile extends React.PureComponent {
+  constructor(props){
+    super(props);
+    this.state={
+      listQuestion: [],
+      token: getStorage('authorization'),
+      numberPost: 0
+    };
+    this.getListAllQuestion =this.getListAllQuestion.bind(this);
+  }
+  componentDidMount(){
+    this.getListAllQuestion();
+  }
+
+  getListAllQuestion(){
+    getListQuestion(1)
+      .then(res => {
+        console.log('trangChu', res);
+        if (res.Status === 200){
+          this.setState({
+            listQuestion: res.listQuestion,
+          })
+        } else {
+          alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+        }
+      })
+      .catch(() => alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục'));
+  }
+
+  render() {
+    return (
+      <div>
+        <Row>
+          <Col span={5} offset={1}>
+            <Row style={{margin: '20px'}}>
+              <MenuHoiHay />
+            </Row>
+          </Col>
+
+          <Col span={12} style={{padding: "10px"}}>
+            <Col span={22}>
+              <AddQuestion getListAllQuestion={this.getListAllQuestion}/>
+            </Col>
+            <Col span={22}>
+              {this.state.listQuestion.map(question => (
+                <Row style={{marginTop: "10px"}} key={question.PostId}>
+                  <Question question={question} getListAllQuestion={this.getListAllQuestion} />
+                </Row>
+              ))}
+            </Col>
+          </Col>
+
+          <Col span={5} offset={1}>
+            <Row style={{margin: '20px'}}>
+              <XepHang />
+            </Row>
+            <Row style={{margin: '20px'}}>
+              <ThongKe />
+            </Row>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
 }
 
-export default Home;
+Profile.propTypes = {};
+
+
+export default Profile;

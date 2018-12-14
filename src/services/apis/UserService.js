@@ -105,3 +105,18 @@ export function voteAnswer(answerID){
   };
   return postWithAuth(`${ApiRouter.VOTE_ANSWER}`, value);
 }
+
+export function getListQuestion(index){
+  let value = {
+    Index: index,
+  };
+  return postWithAuth(`${ApiRouter.LIST_QUESTION}`, value);
+}
+
+export function getListQuestionByTheme(theme, index){
+  let value = {
+    Theme: theme,
+    Index: index,
+  };
+  return postWithAuth(`${ApiRouter.LIST_QUESTION_BY_THEME}`, value);
+}

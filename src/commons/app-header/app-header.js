@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 
 export default class AppHeader extends React.Component {
   static contextTypes = {
-    router: PropTypes.object
+    router: PropTypes.object,
   };
 
   constructor(props, context) {
@@ -41,9 +41,13 @@ export default class AppHeader extends React.Component {
   }
 
   onLogoutBtnClick() {
-    // this.setState({ isLogin: false });
+    const {reloadHomePage} =  this.props;
     clear('authorization');
-    this.setState({ isLogin: false})
+    this.setState({ isLogin: false});
+    this.context.router.history.push(`/`);
+    if (reloadHomePage){
+      return reloadHomePage();
+    }
   }
 
   onOpenModal() {
@@ -65,12 +69,12 @@ export default class AppHeader extends React.Component {
     const { isLogin, isShownModal, username, titleBt, title } = this.state;
     // let isLogin = () => this.setState({ isLogin: false });
     return (
-      <div>
+      <div style={{position: "fixed", width: "100%", zIndex: 1000 }}>
         <Navbar collapseOnSelect className=' b-blue header '>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#brand">{title}
-              </a>
+              <Link to="/">{title}
+              </Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -118,9 +122,9 @@ export default class AppHeader extends React.Component {
                     <MenuItem>Edit profile</MenuItem>
                     <MenuItem divider />
                     <MenuItem onClick={() => this.onLogoutBtnClick()}>
-                      <Link href='/' to='/' style={{padding: 0}}>
+                      {/*<Link href='/' to='/' style={{padding: 0}}>*/}
                         Đăng xuất
-                      </Link>
+                      {/*</Link>*/}
                     </MenuItem>
                   </NavDropdown>
                   :
@@ -132,7 +136,12 @@ export default class AppHeader extends React.Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <Login show={isShownModal} onHide={this.onCloseModal.bind(this)} onLogin={this.onLogin.bind(this)} />
+        <Login
+          show={isShownModal}
+          onHide={this.onCloseModal.bind(this)}
+          onLogin={this.onLogin.bind(this)}
+          reloadHomePage={this.props.reloadHomePage}
+        />
       </div>
     )
   }
