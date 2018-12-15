@@ -198,6 +198,7 @@ class Question extends React.PureComponent {
   onClickUnlock = () => {
     viewQuestion(this.state.question.PostId).then(res => {
       if (res.Status === 200){
+        this.props.reloadPoint();
         this.getInforQuestion();
       }
     })

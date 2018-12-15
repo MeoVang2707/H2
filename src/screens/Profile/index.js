@@ -11,8 +11,8 @@ import { Row, Col } from 'antd';
 import { Redirect } from 'react-router-dom';
 
 import Header from '../../commons/app-header/app-header';
-import {getStorage} from '../../services/StorageService'
-import {getMyQuestion} from '../../services/apis/UserService'
+import {getStorage, set} from '../../services/StorageService'
+import {getMyQuestion, getProfile} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
@@ -27,12 +27,15 @@ export class Profile extends React.PureComponent {
     this.state={
       listQuestion: [],
       token: getStorage('authorization'),
-      numberPost: 0
+      numberPost: 0,
+      point: getStorage('point'),
     };
     this.getListMyQuestion =this.getListMyQuestion.bind(this);
+    this.reloadPoint = this.reloadPoint.bind(this);
   }
   componentDidMount(){
     this.getListMyQuestion();
+    this.reloadPoint();
   }
 
   getListMyQuestion(){
@@ -50,6 +53,19 @@ export class Profile extends React.PureComponent {
       .catch(e => console.log(e));
   }
 
+  reloadPoint = () => {
+    getProfile().then(
+      res => {
+        if (res.Status === 200) {
+          set('point', res.User.point);
+          this.setState({
+            point: res.User.point
+          })
+        }
+      }
+    )
+  };
+
   render() {
     if (!this.state.token) {
       return (
@@ -59,7 +75,7 @@ export class Profile extends React.PureComponent {
     return (
       <div>
         <Row style={{height: "60px"}}>
-          <Header />
+          <Header point={this.state.point} reloadPoint={this.reloadPoint}/>
         </Row>
 
         <Row>
@@ -73,12 +89,12 @@ export class Profile extends React.PureComponent {
           </Col>
           <Col span={12} style={{padding: "10px"}}>
             <Col span={22}>
-              <AddQuestion getListMyQuestion={this.getListMyQuestion}/>
+              <AddQuestion reloadPoint={this.reloadPoint} getListMyQuestion={this.getListMyQuestion}/>
             </Col>
             <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
-                  <Question question={question} getListMyQuestion={this.getListMyQuestion} />
+                  <Question reloadPoint={this.reloadPoint} question={question} getListMyQuestion={this.getListMyQuestion} />
                 </Row>
               ))}
             </Col>

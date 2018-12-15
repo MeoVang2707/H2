@@ -1,6 +1,11 @@
-.promotion {
-    height: 400px;
-    background: #4E4E4E;
-    width: 100%;
-    margin-bottom: 5px;
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 250px;
+  line-height: 300px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
 }

@@ -1,37 +1,51 @@
-/**
- *
- * Header
- *
- */
 
 import React from 'react';
 import { Col, Row, Menu, Dropdown, Icon } from 'antd';
 
 import imgSearch from './images/seach.png';
 import imgAva from './images/ava.jpg';
+import {clear} from "../../services/StorageService";
+import Login from "./component/login";
 
 import './style.css';
 
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="/">Hồ sơ</a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="/">Thưởng điểm</a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="/">Thông báo</a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="/">Đăng xuất</a>
-    </Menu.Item>
-  </Menu>
-);
-
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.PureComponent {
+  constructor(props){
+    super(props);
+  }
+
+  onLogin(username) {
+    this.setState({ isLogin: true, isShownModal: false, username });
+  }
+
+  onLogoutBtnClick() {
+    const {reloadHomePage} =  this.props;
+    clear('authorization');
+    this.setState({ isLogin: false});
+    this.context.router.history.push(`/`);
+    if (reloadHomePage){
+      return reloadHomePage();
+    }
+  }
+
   render() {
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="/">Hồ sơ</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="/">Thưởng điểm</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="/">Thông báo</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="/">Đăng xuất</a>
+        </Menu.Item>
+      </Menu>
+    );
     return (
       <Row className="header" type="flex" align="middle">
         <Col span={6}>
@@ -69,6 +83,7 @@ class Header extends React.PureComponent {
             </Dropdown>
           </Row>
         </Col>
+
       </Row>
     );
   }

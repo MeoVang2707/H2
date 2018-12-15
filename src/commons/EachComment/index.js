@@ -48,7 +48,7 @@ class EachComment extends React.PureComponent {
           // this.props.deleteOneComment(this.props.answer)
           this.props.getInforQuestion()
         } else {
-          alert('Error')
+          alert(res.Message)
         }
       }
     )

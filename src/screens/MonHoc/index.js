@@ -11,8 +11,8 @@ import { Row, Col } from 'antd';
 import { Redirect } from 'react-router-dom';
 
 import AppHeader from '../../commons/app-header/app-header';
-import {getStorage} from '../../services/StorageService'
-import {getListQuestionByTheme} from '../../services/apis/UserService'
+import {getStorage, set} from '../../services/StorageService'
+import {getListQuestionByTheme, getProfile} from '../../services/apis/UserService'
 import ThongKe from '../../commons/ThongKe';
 import XepHang from '../../commons/XepHang'
 import Question from '../../commons/Question'
@@ -28,12 +28,15 @@ export class MonHoc extends React.PureComponent {
     this.state={
       listQuestion: [],
       token: getStorage('authorization'),
-      monHoc: this.props.match.params.monHoc
+      monHoc: this.props.match.params.monHoc,
+      point: getStorage('point'),
     };
     this.getListAllQuestion =this.getListAllQuestion.bind(this);
+    this.reloadPoint = this.reloadPoint.bind(this);
   }
   componentDidMount(){
     this.getListAllQuestion();
+    this.reloadPoint()
   }
 
   componentDidUpdate(){
@@ -41,6 +44,19 @@ export class MonHoc extends React.PureComponent {
       this.getListAllQuestion();
     }
   }
+
+  reloadPoint = () => {
+    getProfile().then(
+      res => {
+        if (res.Status === 200) {
+          set('point', res.User.point);
+          this.setState({
+            point: res.User.point
+          })
+        }
+      }
+    )
+  };
 
   getListAllQuestion(){
     const {monHoc} = this.props.match.params;
@@ -68,9 +84,9 @@ export class MonHoc extends React.PureComponent {
     }
     return (
       <div>
-          <AppHeader />
-          <GoogleAds />
-          <Promotion />
+        <AppHeader point={this.state.point} reloadPoint={this.reloadPoint}/>
+        <GoogleAds />
+        <Promotion />
 
         <Row>
           <Col span={3} offset={1}>
@@ -83,7 +99,7 @@ export class MonHoc extends React.PureComponent {
             <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
-                  <Question question={question} getListAllQuestion={this.getListAllQuestion} />
+                  <Question reloadPoint={this.reloadPoint} question={question} getListMyQuestion={this.getListAllQuestion} />
                 </Row>
               ))}
             </Col>

@@ -52,6 +52,7 @@ class AddQuestion extends React.PureComponent {
           });
           if (res.Status === 200){
             this.props.getListMyQuestion();
+            this.props.reloadPoint();
             alert('Thành công');
           }
         })

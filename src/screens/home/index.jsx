@@ -12,7 +12,7 @@ import Question from "../../commons/Question";
 // import './style.css';
 /* eslint-disable react/prefer-stateless-function */
 
-export class Profile extends React.PureComponent {
+export class Home extends React.PureComponent {
   constructor(props){
     super(props);
     this.state={
@@ -53,12 +53,12 @@ export class Profile extends React.PureComponent {
 
           <Col span={12} style={{padding: "10px"}} offset={1}>
             <Col span={22}>
-              <AddQuestion getListMyQuestion={this.getListAllQuestion}/>
+              <AddQuestion reloadPoint={this.props.reloadPoint} getListMyQuestion={this.getListAllQuestion}/>
             </Col>
             <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
-                  <Question question={question} getListAllQuestion={this.getListAllQuestion} />
+                  <Question reloadPoint={this.props.reloadPoint} question={question} getListMyQuestion={this.getListAllQuestion} />
                 </Row>
               ))}
             </Col>
@@ -78,7 +78,7 @@ export class Profile extends React.PureComponent {
   }
 }
 
-Profile.propTypes = {};
+Home.propTypes = {};
 
 
-export default Profile;
+export default Home;
