@@ -73,7 +73,9 @@ export class MonHoc extends React.PureComponent {
           alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
         }
       })
-      .catch(e => console.log(e));
+      .catch(e => {if(e.response.status ===401){
+      alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+    }});
   }
 
   render() {

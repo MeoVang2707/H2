@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Row, Col } from 'antd';
+import {Row, Col} from 'antd';
 
 import {getStorage} from '../../services/StorageService'
 import {getListQuestion} from '../../services/apis/UserService'
@@ -13,24 +12,25 @@ import Question from "../../commons/Question";
 /* eslint-disable react/prefer-stateless-function */
 
 export class Home extends React.PureComponent {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       listQuestion: [],
       token: getStorage('authorization'),
       numberPost: 0
     };
-    this.getListAllQuestion =this.getListAllQuestion.bind(this);
+    this.getListAllQuestion = this.getListAllQuestion.bind(this);
   }
-  componentDidMount(){
+
+  componentDidMount() {
     this.getListAllQuestion();
   }
 
-  getListAllQuestion(){
+  getListAllQuestion() {
     getListQuestion(1)
       .then(res => {
         // console.log('trangChu', res);
-        if (res.Status === 200){
+        if (res.Status === 200) {
           this.setState({
             listQuestion: res.listQuestion,
           })
@@ -38,7 +38,9 @@ export class Home extends React.PureComponent {
           alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
         }
       })
-      .catch(e => console.log(e));
+      .catch(e => {if(e.response.status ===401){
+        alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+      }});
   }
 
   render() {
@@ -47,7 +49,7 @@ export class Home extends React.PureComponent {
         <Row>
           <Col span={3} offset={1}>
             <Row style={{margin: '20px'}}>
-              <MenuHoiHay />
+              <MenuHoiHay/>
             </Row>
           </Col>
 
@@ -58,7 +60,8 @@ export class Home extends React.PureComponent {
             <Col span={22}>
               {this.state.listQuestion.map(question => (
                 <Row style={{marginTop: "10px"}} key={question.PostId}>
-                  <Question reloadPoint={this.props.reloadPoint} question={question} getListMyQuestion={this.getListAllQuestion} />
+                  <Question reloadPoint={this.props.reloadPoint} question={question}
+                            getListMyQuestion={this.getListAllQuestion}/>
                 </Row>
               ))}
             </Col>
@@ -66,10 +69,10 @@ export class Home extends React.PureComponent {
 
           <Col span={5} offset={1}>
             <Row style={{margin: '20px'}}>
-              <XepHang />
+              <XepHang/>
             </Row>
             <Row style={{margin: '20px'}}>
-              <ThongKe />
+              <ThongKe/>
             </Row>
           </Col>
         </Row>
