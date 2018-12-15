@@ -47,7 +47,6 @@ export class MonHoc extends React.PureComponent {
     this.setState({
       monHoc
     });
-    console.log('xxxx', this.state.monHoc);
     getListQuestionByTheme( monHoc, 1)
       .then(res => {
         if (res.Status === 200){
@@ -58,7 +57,7 @@ export class MonHoc extends React.PureComponent {
           alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
         }
       })
-      .catch(() => alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục'));
+      .catch(e => console.log(e));
   }
 
   render() {

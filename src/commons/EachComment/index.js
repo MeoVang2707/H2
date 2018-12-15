@@ -43,7 +43,6 @@ class EachComment extends React.PureComponent {
   onDeleteComment = () => {
     deleteComment(this.props.comment.CommentId).then(
       res => {
-        console.log('res', res);
         if (res.Status === 200){
           alert("thành công");
           // this.props.deleteOneComment(this.props.answer)

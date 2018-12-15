@@ -120,3 +120,10 @@ export function getListQuestionByTheme(theme, index){
   };
   return postWithAuth(`${ApiRouter.LIST_QUESTION_BY_THEME}`, value);
 }
+
+export function viewQuestion(postId){
+  let value = {
+    PostId : postId,
+  };
+  return postWithAuth(`${ApiRouter.VIEW_QUESTION}`, value);
+}

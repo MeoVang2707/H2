@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e523d7a1-3964-476f-b96a-ad0fd92bd2af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/commons/Modal/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Menu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Menu/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/app-footer/app-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/app-footer/app-footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/promotion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/promotion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/AddQuestion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AddQuestion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/EachAnswer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/EachAnswer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/EachComment/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/EachComment/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Question/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Question/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Question/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Question/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/app-header/app-header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/app-header/app-header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/MonHoc/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MonHoc/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Profile/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/apis/ApiInvoke.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/apis/ApiInvoke.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/apis/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/apis/UserService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,30 +30,30 @@
     <session id="-1561279788">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.23" value="2" />
           <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.30" value="2" />
+          <entry key="project.open.time.30" value="3" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="11" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="95" />
+          <entry key="js" value="107" />
           <entry key="json" value="5" />
-          <entry key="jsx" value="19" />
-          <entry key="scss" value="5" />
+          <entry key="jsx" value="21" />
+          <entry key="scss" value="7" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
@@ -53,34 +61,34 @@
         <counts>
           <entry key="CSS" value="11" />
           <entry key="JSON" value="5" />
-          <entry key="JSX Harmony" value="19" />
-          <entry key="JavaScript" value="95" />
+          <entry key="JSX Harmony" value="21" />
+          <entry key="JavaScript" value="107" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="SCSS" value="5" />
+          <entry key="SCSS" value="7" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="182" />
-          <entry key="js" value="15166" />
+          <entry key="js" value="16405" />
           <entry key="json" value="5" />
-          <entry key="jsx" value="746" />
-          <entry key="scss" value="36" />
+          <entry key="jsx" value="758" />
+          <entry key="scss" value="89" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="182" />
           <entry key="JSON" value="5" />
-          <entry key="JSX Harmony" value="746" />
-          <entry key="JavaScript" value="15166" />
-          <entry key="SCSS" value="36" />
+          <entry key="JSX Harmony" value="758" />
+          <entry key="JavaScript" value="16405" />
+          <entry key="SCSS" value="89" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="16" />
+          <entry key="ESLintLanguageService" value="17" />
           <entry key="TypeScriptServerServiceImpl" value="1" />
         </counts>
       </usages-collector>
@@ -88,32 +96,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-              <folding>
-                <element signature="e#176#201#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/screens/MonHoc/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="270">
+              <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding>
                 <element signature="e#133#165#0" expanded="true" />
                 <element signature="e#592#641#0" expanded="true" />
@@ -123,10 +110,92 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/commons/promotion/index.js">
+        <entry file="file://$PROJECT_DIR$/src/screens/Profile/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="32" />
+              <folding>
+                <element signature="e#133#165#0" expanded="true" />
+                <element signature="e#1717#1792#0" />
+                <element signature="e#2408#2562#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/Modal/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4">
+              <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+              <folding>
+                <element signature="e#1#27#0" expanded="true" />
+                <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/EachComment/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+              <folding>
+                <element signature="e#26#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="65" column="2" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/EachAnswer/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="188" column="13" lean-forward="true" selection-start-line="188" selection-start-column="13" selection-end-line="188" selection-end-column="13" />
+              <folding>
+                <element signature="e#26#52#0" expanded="true" />
+                <element signature="n#!!block;n#constructor#0;n#EachAnswer#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+              <caret line="72" column="58" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="58" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -135,61 +204,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/apis/UserService.js">
+        <entry file="file://$PROJECT_DIR$/src/commons/Question/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="115" column="38" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="38" />
+            <state relative-caret-position="175">
+              <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
               <folding>
-                <element signature="e#0#86#0" expanded="true" />
-                <element signature="n#!!block;n#login#0" />
-                <element signature="n#!!block;n#getMyQuestion#0" />
-                <element signature="n#!!block;n#getProfile#0" />
-                <element signature="n#!!block;n#addQuestion#0" />
-                <element signature="n#!!block;n#deleteQuestion#0" />
-                <element signature="n#!!block;n#editQuestion#0" />
-                <element signature="n#!!block;n#addAnswer#0" />
-                <element signature="n#!!block;n#editAnswer#0" />
-                <element signature="n#!!block;n#getQuestion#0" />
-                <element signature="n#!!block;n#addComment#0" />
-                <element signature="n#!!block;n#deleteComment#0" />
-                <element signature="n#!!block;n#editComment#0" />
-                <element signature="n#!!block;n#voteAnswer#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
-              <folding>
-                <element signature="e#1#27#0" expanded="true" />
-                <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
-                <element signature="n#!!block;n#getListAllQuestion#0;n#Profile#0" />
-                <element signature="e#1377#1510#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#97#159#0" expanded="true" />
+                <element signature="e#1713#2788#0" />
+                <element signature="e#2823#2894#0" />
+                <element signature="e#2924#2984#0" />
+                <element signature="e#3014#3217#0" />
+                <element signature="e#3236#3287#0" />
+                <element signature="e#3316#3895#0" />
+                <element signature="e#3923#3987#0" />
+                <element signature="e#4010#4062#0" />
+                <element signature="e#4096#4387#0" />
+                <element signature="e#4416#4913#0" />
+                <element signature="e#6165#6431#0" />
+                <element signature="e#6462#7016#0" />
               </folding>
             </state>
           </provider>
@@ -199,14 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getInforQuestion</find>
-      <find>onDeleteComment</find>
-      <find>EachC</find>
-      <find>vote</find>
-      <find>textEdit</find>
-      <find>Vote</find>
-      <find>EachA</find>
-      <find>Tài</find>
       <find>listM</find>
       <find>listMon</find>
       <find>listMo</find>
@@ -226,9 +250,17 @@
       <find>img01</find>
       <find>this.conte</find>
       <find>this.con</find>
-      <find>Redi</find>
       <find>context</find>
       <find>this</find>
+      <find>Redi</find>
+      <find>numberComment</find>
+      <find>onSubmitCauHoi</find>
+      <find>onClickUnlock</find>
+      <find>bor</find>
+      <find>console</find>
+      <find>Tài</find>
+      <find>tài</find>
+      <find>border-radius</find>
     </findStrings>
     <replaceStrings>
       <replace>showComment</replace>
@@ -239,9 +271,11 @@
       <replace>getListAllQuestion</replace>
       <replace>MonHoc</replace>
       <replace>getListQuestionByTheme</replace>
+      <replace>numberAnswer</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\CLC\20181\Đồ án\hoihay\client</dir>
+      <dir>F:\CLC\20181\Đồ án\hoihay\client\srctài</dir>
       <dir>F:\CLC\20181\Đồ án\hoihay\client\src</dir>
     </dirStrings>
   </component>
@@ -257,24 +291,26 @@
         <option value="$PROJECT_DIR$/src/commons/google-ads/index.js" />
         <option value="$PROJECT_DIR$/src/commons/Question/style.css" />
         <option value="$PROJECT_DIR$/src/commons/MyInfor/index.js" />
-        <option value="$PROJECT_DIR$/src/services/apis/ApiInvoke.js" />
-        <option value="$PROJECT_DIR$/src/commons/Question/style.scss" />
-        <option value="$PROJECT_DIR$/src/screens/Profile/index.js" />
-        <option value="$PROJECT_DIR$/src/commons/EachComment/index.js" />
-        <option value="$PROJECT_DIR$/src/commons/EachAnswer/index.js" />
         <option value="$PROJECT_DIR$/src/services/apis/ApiRouter.js" />
-        <option value="$PROJECT_DIR$/src/services/apis/UserService.js" />
         <option value="$PROJECT_DIR$/src/utils/constant.js" />
-        <option value="$PROJECT_DIR$/src/commons/Question/index.js" />
-        <option value="$PROJECT_DIR$/src/commons/AddQuestion/index.js" />
         <option value="$PROJECT_DIR$/src/commons/EditQuestion/index.js" />
         <option value="$PROJECT_DIR$/src/commons/app-header/app-header.js" />
         <option value="$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx" />
-        <option value="$PROJECT_DIR$/src/containers/App.jsx" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/screens/home/index.jsx" />
         <option value="$PROJECT_DIR$/src/commons/promotion/index.js" />
         <option value="$PROJECT_DIR$/src/commons/Menu/index.js" />
+        <option value="$PROJECT_DIR$/src/commons/Question/style.scss" />
+        <option value="$PROJECT_DIR$/src/services/apis/UserService.js" />
+        <option value="$PROJECT_DIR$/src/containers/App.jsx" />
+        <option value="$PROJECT_DIR$/src/commons/AddQuestion/index.js" />
+        <option value="$PROJECT_DIR$/src/commons/Question/index.js" />
+        <option value="$PROJECT_DIR$/src/commons/Modal/index.js" />
+        <option value="$PROJECT_DIR$/src/commons/app-header/app-header.scss" />
+        <option value="$PROJECT_DIR$/src/commons/EachComment/index.js" />
+        <option value="$PROJECT_DIR$/src/services/apis/ApiInvoke.js" />
+        <option value="$PROJECT_DIR$/src/commons/EachAnswer/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/Profile/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/home/index.jsx" />
         <option value="$PROJECT_DIR$/src/screens/MonHoc/index.js" />
       </list>
     </option>
@@ -308,7 +344,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -325,34 +360,35 @@
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="app-header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="Modal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="MonHoc" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="Question" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="Profile" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="ThongKe" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="client" type="b2602c69:ProjectViewProjectNode" />
@@ -371,6 +407,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,18 +467,19 @@
       <workItem from="1544645125303" duration="4041000" />
       <workItem from="1544657063246" duration="13796000" />
       <workItem from="1544754140129" duration="17003000" />
-      <workItem from="1544799500869" duration="5346000" />
+      <workItem from="1544799500869" duration="5571000" />
+      <workItem from="1544843379801" duration="8630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141269000" />
+    <option name="totallyTimeSpent" value="150124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -479,13 +517,6 @@
     <entry file="file://$PROJECT_DIR$/src/commons/XepHang/tests/index.test.js" />
     <entry file="file://$PROJECT_DIR$/src/commons/Header/tests/index.test.js" />
     <entry file="file://$PROJECT_DIR$/src/screens/Profile/tests/index.test.js" />
-    <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-411">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commons/Header/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -573,24 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/Question/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/EachAnswer/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="185" column="53" selection-start-line="185" selection-start-column="53" selection-end-line="185" selection-end-column="53" />
-          <folding>
-            <element signature="e#26#52#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#EachAnswer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commons/XepHang/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -622,39 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/AddQuestion/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/EachComment/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <element signature="e#26#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/Question/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1938">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="e#97#159#0" expanded="true" />
-            <element signature="n#!!block;n#componentDidMount#0;n#Question#0" />
-            <element signature="e#3316#3895#0" />
-            <element signature="e#4416#4913#0" />
-            <element signature="e#5272#7985#0" />
-            <element signature="e#6165#6431#0" />
-            <element signature="e#6462#7016#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/history.js" />
     <entry file="file://$PROJECT_DIR$/src/commons/app-header/component/login/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -663,86 +643,6 @@
           <folding>
             <element signature="e#603#643#0" />
             <element signature="e#666#793#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/Profile/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="56" column="8" lean-forward="true" selection-end-line="112" selection-end-column="23" />
-          <folding>
-            <element signature="e#133#165#0" expanded="true" />
-            <element signature="n#!!block;n#getListMyQuestion#0;n#Profile#0" />
-            <element signature="e#1717#1792#0" />
-            <element signature="e#2408#2562#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-            <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
-            <element signature="n#!!block;n#getListAllQuestion#0;n#Profile#0" />
-            <element signature="e#1377#1510#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/apis/UserService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="115" column="38" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#86#0" expanded="true" />
-            <element signature="n#!!block;n#login#0" />
-            <element signature="n#!!block;n#getMyQuestion#0" />
-            <element signature="n#!!block;n#getProfile#0" />
-            <element signature="n#!!block;n#addQuestion#0" />
-            <element signature="n#!!block;n#deleteQuestion#0" />
-            <element signature="n#!!block;n#editQuestion#0" />
-            <element signature="n#!!block;n#addAnswer#0" />
-            <element signature="n#!!block;n#editAnswer#0" />
-            <element signature="n#!!block;n#getQuestion#0" />
-            <element signature="n#!!block;n#addComment#0" />
-            <element signature="n#!!block;n#deleteComment#0" />
-            <element signature="n#!!block;n#editComment#0" />
-            <element signature="n#!!block;n#voteAnswer#0" />
           </folding>
         </state>
       </provider>
@@ -757,30 +657,188 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/Question/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="56" column="15" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/apis/UserService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="127" column="48" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+            <element signature="n#!!block;n#login#0" />
+            <element signature="n#!!block;n#getMyQuestion#0" />
+            <element signature="n#!!block;n#getProfile#0" />
+            <element signature="n#!!block;n#addQuestion#0" />
+            <element signature="n#!!block;n#deleteQuestion#0" />
+            <element signature="n#!!block;n#editQuestion#0" />
+            <element signature="n#!!block;n#addAnswer#0" />
+            <element signature="n#!!block;n#deleteAnswer#0" />
+            <element signature="n#!!block;n#editAnswer#0" />
+            <element signature="n#!!block;n#getQuestion#0" />
+            <element signature="n#!!block;n#addComment#0" />
+            <element signature="n#!!block;n#deleteComment#0" />
+            <element signature="n#!!block;n#editComment#0" />
+            <element signature="n#!!block;n#voteAnswer#0" />
+            <element signature="n#!!block;n#getListQuestion#0" />
+            <element signature="n#!!block;n#getListQuestionByTheme#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/ThongKe/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/AddQuestion/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="39" column="4" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="39" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/Question/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
+          <folding>
+            <element signature="e#97#159#0" expanded="true" />
+            <element signature="e#1713#2788#0" />
+            <element signature="e#2823#2894#0" />
+            <element signature="e#2924#2984#0" />
+            <element signature="e#3014#3217#0" />
+            <element signature="e#3236#3287#0" />
+            <element signature="e#3316#3895#0" />
+            <element signature="e#3923#3987#0" />
+            <element signature="e#4010#4062#0" />
+            <element signature="e#4096#4387#0" />
+            <element signature="e#4416#4913#0" />
+            <element signature="e#6165#6431#0" />
+            <element signature="e#6462#7016#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/Modal/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="136">
+          <caret line="72" column="58" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="58" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/commons/Menu/index.js">
+    <entry file="file://$PROJECT_DIR$/src/commons/app-header/app-header.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+        <state relative-caret-position="-4">
+          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/EachComment/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
           <folding>
-            <element signature="e#176#201#0" expanded="true" />
+            <element signature="e#26#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/apis/ApiInvoke.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="65" column="2" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commons/EachAnswer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="188" column="13" lean-forward="true" selection-start-line="188" selection-start-column="13" selection-end-line="188" selection-end-column="13" />
+          <folding>
+            <element signature="e#26#52#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#EachAnswer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/Profile/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="32" />
+          <folding>
+            <element signature="e#133#165#0" expanded="true" />
+            <element signature="e#1717#1792#0" />
+            <element signature="e#2408#2562#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/home/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="e#1#27#0" expanded="true" />
+            <element signature="n#!!block;n#componentDidMount#0;n#Profile#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/MonHoc/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="270">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
           <folding>
             <element signature="e#133#165#0" expanded="true" />
             <element signature="e#592#641#0" expanded="true" />

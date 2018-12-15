@@ -29,7 +29,7 @@ export class Profile extends React.PureComponent {
   getListAllQuestion(){
     getListQuestion(1)
       .then(res => {
-        console.log('trangChu', res);
+        // console.log('trangChu', res);
         if (res.Status === 200){
           this.setState({
             listQuestion: res.listQuestion,
@@ -38,7 +38,7 @@ export class Profile extends React.PureComponent {
           alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
         }
       })
-      .catch(() => alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục'));
+      .catch(e => console.log(e));
   }
 
   render() {
@@ -53,7 +53,7 @@ export class Profile extends React.PureComponent {
 
           <Col span={12} style={{padding: "10px"}} offset={1}>
             <Col span={22}>
-              <AddQuestion getListAllQuestion={this.getListAllQuestion}/>
+              <AddQuestion getListMyQuestion={this.getListAllQuestion}/>
             </Col>
             <Col span={22}>
               {this.state.listQuestion.map(question => (

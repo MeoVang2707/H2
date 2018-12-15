@@ -32,9 +32,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/*<Row style={{position: 'fixed', zIndex: '1000'}}>*/}
-        <AppHeader reloadHomePage={this.reloadHomePage} />
-        {/*</Row>*/}
+        <Row style={{height: "55px"}}>
+          <AppHeader reloadHomePage={this.reloadHomePage} />
+        </Row>
         <GoogleAds />
         <Promotion />
         {

@@ -4,6 +4,8 @@ import { Row, Col, Select, Input, Button} from 'antd';
 
 import {listMonHoc} from "../../utils/constant";
 import {addQuestion} from '../../services/apis/UserService';
+import ShowModal from '../Modal'
+
 import './style.css'
 
 const { TextArea } = Input;
@@ -25,12 +27,16 @@ class AddQuestion extends React.PureComponent {
     this.setState({
       typeQuestion: value
     })
-  }
+  };
 
   onChangeCauHoi = e => {
     this.setState({
       contentQuestion: e.target.value
     })
+  };
+
+  showModal = () => {
+    ShowModal(100, this.onSubmitCauHoi);
   };
 
   onSubmitCauHoi = () => {
@@ -50,7 +56,7 @@ class AddQuestion extends React.PureComponent {
           }
         })
     }
-  }
+  };
 
   render() {
     return (
@@ -83,7 +89,7 @@ class AddQuestion extends React.PureComponent {
               <Button
                 type="primary"
                 style={{ width: "20%", margin: "10px"}}
-                onClick={this.onSubmitCauHoi}
+                onClick={this.showModal}
               >
                 Đăng
               </Button>

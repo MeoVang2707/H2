@@ -62,7 +62,7 @@ export function postWithoutAuth(route, payload){
 
 export function postWithAuth(route, payload){
   let url = BASE_URL + route;
-  console.log('qqqqq', getStorage('authorization'));
+  // console.log('qqqqq', getStorage('authorization'));
   return axios.post(url, payload, {headers: {
       authorization: getStorage('authorization')
     }})

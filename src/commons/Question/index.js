@@ -9,9 +9,10 @@ import React from 'react';
 import {Input, Row, Col, Dropdown, Menu, Divider} from 'antd';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import {deleteQuestion, addAnswer, getQuestion} from '../../services/apis/UserService'
+import {deleteQuestion, addAnswer, getQuestion, viewQuestion} from '../../services/apis/UserService'
 import {getStorage} from '../../services/StorageService';
 import {listMonHoc} from "../../utils/constant";
+import ShowModal from '../Modal'
 
 import EditQuestion from '../EditQuestion'
 import EachAnswer from '../EachAnswer'
@@ -33,7 +34,8 @@ class Question extends React.PureComponent {
       newAnswer: null,
       pureListAnswer: this.props.question.answers,
       question: null,
-      userId: getStorage('userId')
+      userId: getStorage('userId'),
+      numberAnswer: 0,
     };
     this.onXemThem = this.onXemThem.bind(this);
     this.onHideQuestion = this.onHideQuestion.bind(this);
@@ -116,7 +118,7 @@ class Question extends React.PureComponent {
     this.setState({
       edited: true
     })
-  }
+  };
 
   onAddAnswer = (event) => {
     if(event.key === 'Enter'){
@@ -127,7 +129,8 @@ class Question extends React.PureComponent {
               this.setState(state => ({
                 newAnswer: null,
                 listAnswers: [res.answer, ...state.listAnswers],
-                pureListAnswer: [res.answer, ...state.listAnswers]
+                pureListAnswer: [res.answer, ...state.listAnswers],
+                numberAnswer: state.numberAnswer + 1
               }))
             }
             else {
@@ -172,11 +175,11 @@ class Question extends React.PureComponent {
     getQuestion(postId).then(
       res => {
         if (res.Status === 200){
-          console.log('aaaa', res);
           const answers = res.Value.answers;
           this.setState({
             question: res.Value,
-            pureListAnswer: res.Value.answers
+            pureListAnswer: res.Value.answers,
+            numberAnswer: res.Value.NumberAnswer
           });
           if (answers.length > 3){
             this.onHideQuestion(answers)
@@ -186,7 +189,19 @@ class Question extends React.PureComponent {
         }
       }
     )
-  }
+  };
+
+  showModal = () => {
+    ShowModal(50, this.onClickUnlock);
+  };
+
+  onClickUnlock = () => {
+    viewQuestion(this.state.question.PostId).then(res => {
+      if (res.Status === 200){
+        this.getInforQuestion();
+      }
+    })
+  };
 
   render() {
     const {question} = this.state;
@@ -251,13 +266,29 @@ class Question extends React.PureComponent {
               </Row>
           }
           <Row type="flex" align="middle" style={{marginBottom: '20px'}}>
-            <Col span={4}>
+            <Col span={3}>
               <Row type="flex" justify="space-between">
-                <img src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike} alt="Like"/>
-                <img src={imgShare} alt="Share"/>
-                <img src={imgComment} alt="Comment"/>
+                <img className="iconInQuestion" src={this.state.liked ? imgLiked : imgLike} onClick={this.onToggleLike} alt="Like"/>
+                <img className="iconInQuestion" src={imgShare} alt="Share"/>
+                <Row>
+                  <span style={{marginRight: "5px"}}>{this.state.numberAnswer}</span>
+                  <img className="iconInQuestion" src={imgComment} alt="Comment"/>
+                </Row>
               </Row>
             </Col>
+            {
+              question.Voted === "chua unlock cau hoi" ?
+                <Col span={7} offset={1}>
+              <span
+                className="textEdit"
+                onClick={this.showModal}
+              >
+                Mở khóa bình luận
+              </span>
+                </Col>
+                :
+                null
+            }
           </Row>
           <Row type="flex" align="middle">
             <Col span={2}>

@@ -133,7 +133,7 @@ class EachAnswer extends React.PureComponent {
       if (this.state.newComment){
         addComment(this.state.newComment, this.props.answer.AnswerId).then(
           res => {
-            console.log('res', res);
+            // console.log('res', res);
             if (res.Status === 200) {
               this.setState(() => ({
                 newComment: null,
@@ -186,7 +186,7 @@ class EachAnswer extends React.PureComponent {
           alert('Bạn không thể tự vote cho chính mình')
         }
       }
-    }).catch(() => alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục'));
+    }).catch(e => console.log(e));
   };
   
   render() {
