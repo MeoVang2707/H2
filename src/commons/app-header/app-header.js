@@ -86,60 +86,6 @@ export default class AppHeader extends React.Component {
     );
     return (
       <div style={{position: "fixed", width: "100%", zIndex: 1000 }}>
-        {/*<Row collapseOnSelect className=' b-blue header '>*/}
-          {/*<Navbar.Header>*/}
-            {/*<Navbar.Brand>*/}
-              {/*<Link to="/">{title}*/}
-              {/*</Link>*/}
-            {/*</Navbar.Brand>*/}
-            {/*<Navbar.Toggle />*/}
-          {/*</Navbar.Header>*/}
-          {/*<Navbar.Collapse>*/}
-            {/*<Nav pullRight >*/}
-            {/*<li style={{width: '160px', padding: '8px'}}>*/}
-              {/*<button  className='btn btn-success btn-block'>{titleBt.latest}</button>*/}
-            {/*</li>*/}
-            {/*<li style={{width: '160px', padding: '8px'}}>*/}
-              {/*<button  className='btn btn-danger btn-block'>{titleBt.bestquestion}</button>*/}
-            {/*</li>*/}
-            {/*<li style={{width: '160px', padding: '8px'}}>*/}
-              {/*<Link to='/profile' style={{padding: 0}}>*/}
-                {/*<button  className='btn btn-default btn-block'>*/}
-                  {/*{titleBt.myquestion}*/}
-                {/*</button>*/}
-              {/*</Link>*/}
-            {/*</li>*/}
-            {/*<Navbar.Form pullLeft>*/}
-              {/*<Button type="submit"> <span><i className="fa fa-search" style={{ 'fontSize': '18px' }}></i> </span></Button>*/}
-            {/*</Navbar.Form>*/}
-            {/*{*/}
-              {/*isLogin ?*/}
-                {/*<div style={{display: "inline-block"}}>*/}
-                  {/*<span className="numberHHC">1000 HHC</span>*/}
-                  {/*<NavDropdown*/}
-                    {/*title={<span><i className="fa fa-user fa-fw" style={{ 'fontSize': '18px' }}></i> {username}</span>}*/}
-                    {/*id="basic-nav-dropdown"*/}
-                  {/*>*/}
-                    {/*<MenuItem>Dashboard</MenuItem>*/}
-                    {/*<MenuItem>Inbox</MenuItem>*/}
-                    {/*<MenuItem>Edit profile</MenuItem>*/}
-                    {/*<MenuItem divider />*/}
-                    {/*<MenuItem onClick={() => this.onLogoutBtnClick()}>*/}
-                      {/*<Link href='/' to='/' style={{padding: 0}}>*/}
-                      {/*Đăng xuất*/}
-                      {/*</Link>*/}
-                    {/*</MenuItem>*/}
-                  {/*</NavDropdown>*/}
-                {/*</div>*/}
-                {/*:*/}
-                {/*<NavItem onClick={() => this.onOpenModal()}>*/}
-                  {/*<i className="fa fa-sign-in" style={{ 'fontSize': '18px' }}></i> Đăng nhập*/}
-            {/*</NavItem>*/}
-            {/*}*/}
-
-            {/*</Nav>*/}
-          {/*</Navbar.Collapse>*/}
-        {/*</Row>*/}
         <Row className="header" type="flex" align="middle">
           <Col span={6}>
             <span className="webName">
@@ -163,7 +109,7 @@ export default class AppHeader extends React.Component {
           </Col>
 
           <Col span={4}>
-            <button className="buttonCauHoiCuaToi">
+            <button className="buttonCauHoiCuaToi" onClick={() => this.context.router.history.push(`/profile`)}>
               Câu hỏi của tôi
             </button>
           </Col>
