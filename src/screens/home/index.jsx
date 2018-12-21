@@ -46,36 +46,36 @@ export class Home extends React.PureComponent {
   render() {
     return (
       <div>
-        <Row>
-          <Col span={3} offset={1}>
-            <Row style={{margin: '20px'}}>
-              <MenuHoiHay/>
-            </Row>
-          </Col>
+        {/*<Row>*/}
+          {/*<Col span={3} offset={1}>*/}
+            {/*<Row style={{margin: '20px'}}>*/}
+              {/*<MenuHoiHay/>*/}
+            {/*</Row>*/}
+          {/*</Col>*/}
 
-          <Col span={12} style={{padding: "10px"}} offset={1}>
-            <Col span={22}>
-              <AddQuestion reloadPoint={this.props.reloadPoint} getListMyQuestion={this.getListAllQuestion}/>
-            </Col>
-            <Col span={22}>
-              {this.state.listQuestion.map(question => (
-                <Row style={{marginTop: "10px"}} key={question.PostId}>
-                  <Question reloadPoint={this.props.reloadPoint} question={question}
-                            getListMyQuestion={this.getListAllQuestion}/>
-                </Row>
-              ))}
-            </Col>
-          </Col>
+          {/*<Col span={12} style={{padding: "10px"}} offset={1}>*/}
+            {/*<Col span={22}>*/}
+              {/*<AddQuestion reloadPoint={this.props.reloadPoint} getListMyQuestion={this.getListAllQuestion}/>*/}
+            {/*</Col>*/}
+            {/*<Col span={22}>*/}
+              {/*{this.state.listQuestion.map(question => (*/}
+                {/*<Row style={{marginTop: "10px"}} key={question.PostId}>*/}
+                  {/*<Question reloadPoint={this.props.reloadPoint} question={question}*/}
+                            {/*getListMyQuestion={this.getListAllQuestion}/>*/}
+                {/*</Row>*/}
+              {/*))}*/}
+            {/*</Col>*/}
+          {/*</Col>*/}
 
-          <Col span={5} offset={1}>
-            <Row style={{margin: '20px'}}>
-              <XepHang/>
-            </Row>
-            <Row style={{margin: '20px'}}>
-              <ThongKe/>
-            </Row>
-          </Col>
-        </Row>
+          {/*<Col span={5} offset={1}>*/}
+            {/*<Row style={{margin: '20px'}}>*/}
+              {/*<XepHang/>*/}
+            {/*</Row>*/}
+            {/*<Row style={{margin: '20px'}}>*/}
+              {/*<ThongKe/>*/}
+            {/*</Row>*/}
+          {/*</Col>*/}
+        {/*</Row>*/}
       </div>
     );
   }
