@@ -46,16 +46,20 @@ export class MonHoc extends React.PureComponent {
   }
 
   reloadPoint = () => {
-    getProfile().then(
-      res => {
-        if (res.Status === 200) {
-          set('point', res.User.point);
-          this.setState({
-            point: res.User.point
-          })
+    if (this.state.token){
+      getProfile().then(
+        res => {
+          if (res.Status === 200) {
+            set('point', res.User.point);
+            this.setState({
+              point: res.User.point
+            })
+          }
         }
-      }
-    )
+      )
+    } else {
+      return null
+    }
   };
 
   getListAllQuestion(){
@@ -63,19 +67,24 @@ export class MonHoc extends React.PureComponent {
     this.setState({
       monHoc
     });
-    getListQuestionByTheme( monHoc, 1)
-      .then(res => {
-        if (res.Status === 200){
-          this.setState({
-            listQuestion: res.listQuestion,
-          })
-        } else {
+    if (this.state.token){
+      getListQuestionByTheme( monHoc, 1)
+        .then(res => {
+          if (res.Status === 200){
+            this.setState({
+              listQuestion: res.listQuestion,
+            })
+          } else {
+            alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
+          }
+        })
+        .catch(e => {if(e.response.status ===401){
           alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
-        }
-      })
-      .catch(e => {if(e.response.status ===401){
-      alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
-    }});
+        }});
+    } else {
+      return null
+    }
+
   }
 
   render() {
@@ -90,32 +99,32 @@ export class MonHoc extends React.PureComponent {
         <GoogleAds />
         <Promotion />
 
-        {/*<Row>*/}
-          {/*<Col span={3} offset={1}>*/}
-            {/*<Row style={{margin: '20px'}}>*/}
-              {/*<MenuHoiHay getListAllQuestion={this.getListAllQuestion} />*/}
-            {/*</Row>*/}
-          {/*</Col>*/}
+        <Row>
+          <Col span={3} offset={1}>
+            <Row style={{margin: '20px'}}>
+              <MenuHoiHay getListAllQuestion={this.getListAllQuestion} />
+            </Row>
+          </Col>
 
-          {/*<Col span={12} style={{padding: "10px"}} offset={1}>*/}
-            {/*<Col span={22}>*/}
-              {/*{this.state.listQuestion.map(question => (*/}
-                {/*<Row style={{marginTop: "10px"}} key={question.PostId}>*/}
-                  {/*<Question reloadPoint={this.reloadPoint} question={question} getListMyQuestion={this.getListAllQuestion} />*/}
-                {/*</Row>*/}
-              {/*))}*/}
-            {/*</Col>*/}
-          {/*</Col>*/}
+          <Col span={12} style={{padding: "10px"}} offset={1}>
+            <Col span={22}>
+              {this.state.listQuestion.map(question => (
+                <Row style={{marginTop: "10px"}} key={question.PostId}>
+                  <Question reloadPoint={this.reloadPoint} question={question} getListMyQuestion={this.getListAllQuestion} />
+                </Row>
+              ))}
+            </Col>
+          </Col>
 
-          {/*<Col span={5} offset={1}>*/}
-            {/*<Row style={{margin: '20px'}}>*/}
-              {/*<XepHang />*/}
-            {/*</Row>*/}
-            {/*<Row style={{margin: '20px'}}>*/}
-              {/*<ThongKe />*/}
-            {/*</Row>*/}
-          {/*</Col>*/}
-        {/*</Row>*/}
+          <Col span={5} offset={1}>
+            <Row style={{margin: '20px'}}>
+              <XepHang />
+            </Row>
+            <Row style={{margin: '20px'}}>
+              <ThongKe />
+            </Row>
+          </Col>
+        </Row>
       </div>
     );
   }

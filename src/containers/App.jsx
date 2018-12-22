@@ -36,17 +36,22 @@ class App extends Component {
   }
 
   reloadPoint = () => {
-    getProfile().then(
-      res => {
-        if (res.Status === 200) {
-          set('point', res.User.point);
-          this.setState({
-            point: res.User.point
-          })
+    if (this.state.token) {
+      getProfile().then(
+        res => {
+          if (res.Status === 200) {
+            set('point', res.User.point);
+            this.setState({
+              point: res.User.point
+            })
+          }
         }
-      }
-    )
-  }
+      )
+    } else {
+      return null
+    }
+
+  };
 
   render() {
     return (

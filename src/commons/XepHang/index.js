@@ -16,6 +16,48 @@ class XepHang extends React.PureComponent {
     super(props);
     this.state={
       tabSelected: 'week',
+      listXepHang: [
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        },
+        {
+          User: "Trần Trung Hiếu",
+          Point: 1000
+        }
+      ]
     };
   }
   render() {
@@ -46,36 +88,14 @@ class XepHang extends React.PureComponent {
           </Col>
         </Row>
         <Divider style={{margin:0}}/>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>1</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>2</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>3</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>4</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>5</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
-        <Row align="middle" type="flex" justify="space-between" className="rowThongKe">
-          <Col>6</Col>
-          <Col>Trần Trung Hiếu</Col>
-          <Col>1000 HHC</Col>
-        </Row>
+
+        {this.state.listXepHang.map((user, index) => (
+          <Row align="middle" type="flex" justify="space-between" className="rowThongKe" key={index}>
+            <Col>{index+1}</Col>
+            <Col>{user.User}</Col>
+            <Col>{user.Point} HHC</Col>
+          </Row>
+        ))}
       </div>
     );
   }

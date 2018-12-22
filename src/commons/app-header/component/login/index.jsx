@@ -27,13 +27,24 @@ export default class Login extends React.Component {
 
   onLoginBtnClick = () => {
     const {username, password} = this.state;
-    login(username, password)
-      .then(res => {
-        set('authorization', res.Token);
-        set('username', username);
-        set('userId', res.UserId);
-        this.getProfile(username);
-      });
+    if (!username || !password){
+      alert('Tên đăng nhập và mật khẩu không được để trống');
+    } else {
+      login(username, password)
+        .then(res => {
+          if (res.Status === 200){
+            set('authorization', res.Token);
+            set('username', username);
+            set('userId', res.UserId);
+            this.getProfile(username);
+          } else {
+            alert("Tên đăng nhập và mật khẩu không đúng")
+          }
+        })
+        .catch(e => {
+          alert("Something went wrong")
+        });
+    }
   };
 
   getProfile = (username) => {

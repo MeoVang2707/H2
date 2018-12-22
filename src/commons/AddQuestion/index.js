@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Select, Input, Button} from 'antd';
+import { Row, Col, Select, Input, Button, Upload, Icon} from 'antd';
 
 import {listMonHoc} from "../../utils/constant";
 import {addQuestion} from '../../services/apis/UserService';
@@ -11,6 +11,13 @@ import './style.css'
 const { TextArea } = Input;
 const Option = Select.Option;
 
+const fileList = [];
+
+const props = {
+  action: '//jsonplaceholder.typicode.com/posts/',
+  listType: 'picture',
+  defaultFileList: [...fileList],
+};
 
 /* eslint-disable react/prefer-stateless-function */
 class AddQuestion extends React.PureComponent {
@@ -87,9 +94,15 @@ class AddQuestion extends React.PureComponent {
                 ))}
               </Select>
 
+              <Upload {...props}>
+                <Button>
+                  <Icon type="upload" /> Thêm ảnh
+                </Button>
+              </Upload>
+
               <Button
                 type="primary"
-                style={{ width: "20%", margin: "10px"}}
+                style={{ width: "20%", margin: "10px 0"}}
                 onClick={this.showModal}
               >
                 Đăng
