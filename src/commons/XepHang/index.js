@@ -1,15 +1,12 @@
-/**
- *
- * XepHang
- *
- */
-
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
 import {Divider, Row, Col, Icon} from 'antd';
+
+import {getTopUser, getTopQuestion} from '../../services/apis/UserService'
 import './style.css'
+
 /* eslint-disable react/prefer-stateless-function */
 class XepHang extends React.PureComponent {
   constructor(props){
@@ -60,6 +57,19 @@ class XepHang extends React.PureComponent {
       ]
     };
   }
+
+  componentDidMount(){
+    this.getData();
+  }
+
+  getData = () => {
+    getTopQuestion().then(
+      res => {
+        console.log('res', res)
+      }
+    ).catch(e => console.log(e))
+  }
+
   render() {
     return (
       <div className="thongKe">

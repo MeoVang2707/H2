@@ -22,12 +22,8 @@ export function getProfile(){
   return getWithAuth(`${ApiRouter.GET_PROFILE}`);
 }
 
-export function addQuestion(content, type){
-  let value = {
-    Content : content,
-    Theme : type
-  };
-  return postWithAuth(`${ApiRouter.ADD_QUESTION}`, value);
+export function addQuestion(form){
+  return postWithAuth(`${ApiRouter.ADD_QUESTION}`, form);
 }
 
 export function deleteQuestion(postId){
@@ -126,4 +122,15 @@ export function viewQuestion(postId){
     PostId : postId,
   };
   return postWithAuth(`${ApiRouter.VIEW_QUESTION}`, value);
+}
+
+export function getTopQuestion(){
+  return getWithAuth(`${ApiRouter.TOP_QUESTION}`);
+}
+
+export function getTopUser(){
+  let value = {
+    Index: 1,
+  };
+  return getWithAuth(`${ApiRouter.TOP_USER}`);
 }

@@ -18,6 +18,8 @@ export let ApiRouter  = {
   VOTE_ANSWER: 'answer/voteAnswer',
   LIST_QUESTION: 'question/listQuestion',
   LIST_QUESTION_BY_THEME: 'question/listQuestionByTheme',
+  TOP_QUESTION: 'question/TopQuestion',
+  TOP_USER: 'user/topUser',
 };
 
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Select, Input, Button, Upload, Icon} from 'antd';
+import { Row, Col, Select, Input, Button } from 'antd';
 
 import {listMonHoc} from "../../utils/constant";
 import {addQuestion} from '../../services/apis/UserService';
@@ -11,14 +11,6 @@ import './style.css'
 const { TextArea } = Input;
 const Option = Select.Option;
 
-const fileList = [];
-
-const props = {
-  action: '//jsonplaceholder.typicode.com/posts/',
-  listType: 'picture',
-  defaultFileList: [...fileList],
-};
-
 /* eslint-disable react/prefer-stateless-function */
 class AddQuestion extends React.PureComponent {
   constructor(props){
@@ -27,6 +19,7 @@ class AddQuestion extends React.PureComponent {
       tabSelected: 'week',
       contentQuestion: null,
       typeQuestion: "Môn học",
+      file: null,
     };
   }
 
@@ -47,11 +40,15 @@ class AddQuestion extends React.PureComponent {
   };
 
   onSubmitCauHoi = () => {
-    const {contentQuestion, typeQuestion} = this.state;
+    const {contentQuestion, typeQuestion, file} = this.state;
+    const formData = new FormData();
+    formData.append('image',file);
+    formData.append('Content', contentQuestion);
+    formData.append('Theme', typeQuestion);
     if (!contentQuestion || typeQuestion==="Môn học"){
       alert('Empty Error');
     } else {
-      addQuestion(contentQuestion, typeQuestion)
+      addQuestion(formData)
         .then(res => {
           this.setState({
             contentQuestion: null,
@@ -63,7 +60,14 @@ class AddQuestion extends React.PureComponent {
             alert('Thành công');
           }
         })
+        .catch(e => console.log(e));
     }
+  };
+
+  onChangeImage = e => {
+    this.setState({
+      file: e.target.files[0],
+    });
   };
 
   render() {
@@ -94,15 +98,19 @@ class AddQuestion extends React.PureComponent {
                 ))}
               </Select>
 
-              <Upload {...props}>
-                <Button>
-                  <Icon type="upload" /> Thêm ảnh
-                </Button>
-              </Upload>
+              {/*<Upload {...props}>*/}
+                {/*<Button>*/}
+                  {/*<Icon type="upload" /> Thêm ảnh*/}
+                {/*</Button>*/}
+              {/*</Upload>*/}
+
+              <input type="file" name="file" style={{display: "inline-block"}}
+                     onChange={this.onChangeImage}
+              />
 
               <Button
                 type="primary"
-                style={{ width: "20%", margin: "10px 0"}}
+                style={{ width: "20%", margin: "10px"}}
                 onClick={this.showModal}
               >
                 Đăng

@@ -103,7 +103,7 @@ export default class AppHeader extends React.Component {
           </Col>
 
           <Col span={3}>
-            <button className="buttonhoiHayNhat">
+            <button className="buttonhoiHayNhat" onClick={() => this.context.router.history.push(`/top`)}>
               Hỏi hay nhất
             </button>
           </Col>

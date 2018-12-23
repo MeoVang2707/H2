@@ -261,9 +261,18 @@ class Question extends React.PureComponent {
                     }
                   })}
                 </Row>
-                <span style={{fontSize:"18px", color:"#000000"}}>
+                <p style={{fontSize:"18px", color:"#000000"}}>
                   {question.information.Content}
-                </span>
+                </p>
+                {
+                  question.Image ?
+                    <img
+                      src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + question.Image}
+                      style={{maxWidth: "100%"}}
+                      alt={question.Image}
+                    />
+                    : null
+                }
               </Row>
           }
           <Row type="flex" align="middle" style={{marginBottom: '20px'}}>

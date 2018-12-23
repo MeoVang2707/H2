@@ -46,7 +46,7 @@ export class Profile extends React.PureComponent {
             this.setState({
               listQuestion: res.myQuestion,
               numberPost: res.myQuestion.length
-            })
+            });
           } else {
             alert('Tài khoản đã bị truy cập ở một nơi khác. Đăng nhập lại để tiếp tục')
           }
