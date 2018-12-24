@@ -52,7 +52,8 @@ class AddQuestion extends React.PureComponent {
         .then(res => {
           this.setState({
             contentQuestion: null,
-            typeQuestion: "Môn học"
+            typeQuestion: "Môn học",
+            file: null
           });
           this.fileInput.value = null;
           if (res.Status === 200){
@@ -69,6 +70,37 @@ class AddQuestion extends React.PureComponent {
     this.setState({
       file: e.target.files[0],
     });
+  };
+
+  renderImage = () => {
+    const {file} = this.state;
+    if (file){
+      let x = URL.createObjectURL(file);
+      return (
+        <Row>
+          <img
+            src={x}
+            style={{maxWidth: "100px"}}
+            alt="Image"
+          />
+          <Button
+            type="primary"
+            style={{width: "20%", margin: "10px 30px"}}
+            onClick={this.onDeleteImage}
+          >
+            Xóa ảnh
+          </Button>
+        </Row>
+      )
+    }
+    return null
+  };
+
+  onDeleteImage = () => {
+    this.setState({
+      file: null
+    });
+    this.fileInput.value = null;
   };
 
   render() {
@@ -99,12 +131,6 @@ class AddQuestion extends React.PureComponent {
                 ))}
               </Select>
 
-              {/*<Upload {...props}>*/}
-                {/*<Button>*/}
-                  {/*<Icon type="upload" /> Thêm ảnh*/}
-                {/*</Button>*/}
-              {/*</Upload>*/}
-
               <input type="file" name="file" style={{display: "inline-block"}}
                      onChange={this.onChangeImage}
                      ref={ref => this.fileInput = ref}
@@ -117,6 +143,9 @@ class AddQuestion extends React.PureComponent {
               >
                 Đăng
               </Button>
+            </Row>
+            <Row>
+              {this.renderImage()}
             </Row>
           </Col>
         </Row>

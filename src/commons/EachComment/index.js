@@ -22,7 +22,8 @@ class EachComment extends React.PureComponent {
       showFormEditComment: false,
       editComment: this.props.comment.Content,
       userId: getStorage('userId'),
-      showComment: false
+      showComment: false,
+      image: this.props.comment.Image,
     };
   }
 
@@ -74,15 +75,80 @@ class EachComment extends React.PureComponent {
 
   onEditCommentAPI = () => {
     if (this.state.editComment){
-      editComment(this.props.comment.CommentId, this.state.editComment).then(
+      const formData = new FormData();
+      formData.append('image', this.state.image);
+      formData.append('Content', this.state.editComment);
+      formData.append('CommentId', this.props.comment.CommentId);
+      editComment(formData).then(
         res => {
           if (res.Status === 200){
+            this.fileInput.value = null;
             this.props.getInforQuestion();
             this.onExitEdit();
           }
         }
       )
     }
+  };
+
+  onChangeImage = e => {
+    this.setState({
+      image: e.target.files[0],
+    });
+  };
+
+  onDeleteImage = () => {
+    this.setState({
+      image: null
+    });
+    this.fileInput.value = null;
+  };
+
+  renderImage = () => {
+    const {image} = this.state;
+    if (image){
+      if (typeof(image) === "string"){
+        return (
+          <Row>
+            <img
+              src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + this.state.image}
+              style={{width: "100px"}}
+              alt="Image"
+            />
+
+            <Button
+              type="primary"
+              style={{width: "20%", margin: "10px 30px"}}
+              onClick={this.onDeleteImage}
+            >
+              Xóa ảnh
+            </Button>
+
+          </Row>
+        )
+      } else {
+        let x = URL.createObjectURL(image);
+        return (
+          <Row>
+            <img
+              src={x}
+              style={{width: "100px"}}
+              alt="Image"
+            />
+
+            <Button
+              type="primary"
+              style={{width: "20%", margin: "10px 30px"}}
+              onClick={this.onDeleteImage}
+            >
+              Xóa ảnh
+            </Button>
+
+          </Row>
+        )
+      }
+    }
+    return null
   };
   
   render() {
@@ -106,7 +172,7 @@ class EachComment extends React.PureComponent {
         {
           this.state.showFormEditComment
             ?
-            <Row>
+            <Col span={22}>
               <Col span={24}>
                 <Input
                   className="input"
@@ -114,6 +180,24 @@ class EachComment extends React.PureComponent {
                   value={this.state.editComment}
                 />
               </Col>
+
+              <Col span={20}>
+                <input
+                  type="file"
+                  name="file"
+                  style={{
+                   display: "inline-block",
+                   marginTop: "5px"
+                  }}
+                  onChange={this.onChangeImage}
+                  ref={ref => this.fileInput = ref}
+                />
+              </Col>
+
+              <Col span={20}>
+                {this.renderImage()}
+              </Col>
+
               <Col span={24}>
                 <Row>
                   <Button
@@ -133,7 +217,7 @@ class EachComment extends React.PureComponent {
                   </Button>
                 </Row>
               </Col>
-            </Row>
+            </Col>
             :
             <Col span={22}>
               <Col
@@ -144,6 +228,17 @@ class EachComment extends React.PureComponent {
                 <Col className="answerContainer" span={22} style={{padding: "10px 20px"}}>
                   <span className="authAnswer">{comment.User}</span>
                   <span>{comment.Content}</span>
+                  <Col span={24}>
+                    {
+                      comment.Image ?
+                        <img
+                          src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + comment.Image}
+                          style={{maxWidth: "100px", marginTop: "5px"}}
+                          alt="Image"
+                        />
+                        : null
+                    }
+                  </Col>
                 </Col>
                 {
                   this.state.showTextEditQuestion ?

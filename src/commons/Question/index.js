@@ -6,7 +6,7 @@
 
 import React from 'react';
 // import styled from 'styled-components';
-import {Input, Row, Col, Dropdown, Menu, Divider} from 'antd';
+import {Input, Row, Col, Dropdown, Menu, Divider, Button} from 'antd';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import {deleteQuestion, addAnswer, getQuestion, viewQuestion} from '../../services/apis/UserService'
@@ -36,6 +36,7 @@ class Question extends React.PureComponent {
       question: null,
       userId: getStorage('userId'),
       numberAnswer: 0,
+      file: null
     };
     this.onXemThem = this.onXemThem.bind(this);
     this.onHideQuestion = this.onHideQuestion.bind(this);
@@ -123,15 +124,21 @@ class Question extends React.PureComponent {
   onAddAnswer = (event) => {
     if(event.key === 'Enter'){
       if (this.state.newAnswer){
-        addAnswer(this.state.newAnswer, this.props.question.PostId).then(
+        const formData = new FormData();
+        formData.append('image',this.state.file);
+        formData.append('Content', this.state.newAnswer);
+        formData.append('PostId', this.props.question.PostId);
+        addAnswer(formData).then(
           res => {
             if (res.Status === 200) {
               this.setState(state => ({
                 newAnswer: null,
                 listAnswers: [res.answer, ...state.listAnswers],
                 pureListAnswer: [res.answer, ...state.listAnswers],
-                numberAnswer: state.numberAnswer + 1
-              }))
+                numberAnswer: state.numberAnswer + 1,
+                file: null
+              }));
+              this.fileInput.value = null;
             }
             else {
               alert("Error")
@@ -148,13 +155,13 @@ class Question extends React.PureComponent {
     this.setState({
       newAnswer: e.target.value
     })
-  }
+  };
 
   onExitEdit = () => {
     this.setState({
       edited: false
     })
-  }
+  };
 
   deleteOneAnswer = (answer) => {
     const x = [...this.state.listAnswers];
@@ -174,6 +181,7 @@ class Question extends React.PureComponent {
     const postId = this.props.question.PostId;
     getQuestion(postId).then(
       res => {
+        console.log('question', res);
         if (res.Status === 200){
           const answers = res.Value.answers;
           this.setState({
@@ -202,6 +210,43 @@ class Question extends React.PureComponent {
         this.getInforQuestion();
       }
     })
+  };
+
+  onChangeImage = e => {
+    this.setState({
+      file: e.target.files[0],
+    });
+  };
+
+  renderImage = () => {
+    const {file} = this.state;
+    if (file){
+      let x = URL.createObjectURL(file);
+      return (
+        <Row>
+          <img
+            src={x}
+            style={{maxWidth: "100px"}}
+            alt="Image"
+          />
+          <Button
+            type="primary"
+            style={{width: "20%", margin: "10px 30px"}}
+            onClick={this.onDeleteImage}
+          >
+            Xóa ảnh
+          </Button>
+        </Row>
+      )
+    }
+    return null
+  };
+
+  onDeleteImage = () => {
+    this.setState({
+      file: null
+    });
+    this.fileInput.value = null;
   };
 
   render() {
@@ -246,6 +291,7 @@ class Question extends React.PureComponent {
               <EditQuestion
                 content={question.information.Content}
                 type={question.Theme}
+                image={question.Image}
                 postId={question.PostId}
                 getInforQuestion={this.getInforQuestion}
                 onExitEdit={this.onExitEdit}
@@ -268,7 +314,7 @@ class Question extends React.PureComponent {
                   question.Image ?
                     <img
                       src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + question.Image}
-                      style={{maxWidth: "100%"}}
+                      style={{maxWidth: "100px"}}
                       alt="Image"
                     />
                     : null
@@ -324,6 +370,18 @@ class Question extends React.PureComponent {
             </Col>
           </Row>
 
+          <Row>
+            <input type="file" name="file"
+                   style={{
+                     display: "inline-block",
+                     margin: "10px"
+                   }}
+                   onChange={this.onChangeImage}
+                   ref={ref => this.fileInput = ref}
+            />
+          </Row>
+
+          {this.renderImage()}
           {this.renderAnswer()}
         </div>
       );

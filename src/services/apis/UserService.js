@@ -33,21 +33,12 @@ export function deleteQuestion(postId){
   return postWithAuth(`${ApiRouter.DELETE_QUESTION}`, value);
 }
 
-export function editQuestion(content, theme, postId){
-  let value = {
-    Content: content,
-    Theme: theme,
-    PostId: postId
-  };
-  return postWithAuth(`${ApiRouter.EDIT_QUESTION}`, value);
+export function editQuestion(form){
+  return postWithAuth(`${ApiRouter.EDIT_QUESTION}`, form);
 }
 
-export function addAnswer(content, postID){
-  let value = {
-    Content : content,
-    PostId : postID
-  };
-  return postWithAuth(`${ApiRouter.ADD_ANSWER}`, value);
+export function addAnswer(form){
+  return postWithAuth(`${ApiRouter.ADD_ANSWER}`, form);
 }
 
 export function deleteAnswer(answerID){
@@ -57,12 +48,8 @@ export function deleteAnswer(answerID){
   return postWithAuth(`${ApiRouter.DELETE_ANSWER}`, value);
 }
 
-export function editAnswer(answerID, content){
-  let value = {
-    AnswerId : answerID,
-    Content: content
-  };
-  return postWithAuth(`${ApiRouter.EDIT_ANSWER}`, value);
+export function editAnswer(form){
+  return postWithAuth(`${ApiRouter.EDIT_ANSWER}`, form);
 }
 
 export function getQuestion(postId){
@@ -72,12 +59,12 @@ export function getQuestion(postId){
   return postWithAuth(`${ApiRouter.GET_QUESTION}`, value);
 }
 
-export function addComment(content, answerId){
-  let value = {
-    Content : content,
-    AnswerId : answerId
-  };
-  return postWithAuth(`${ApiRouter.ADD_COMMENT}`, value);
+export function addComment(form){
+  // let value = {
+  //   Content : content,
+  //   AnswerId : answerId
+  // };
+  return postWithAuth(`${ApiRouter.ADD_COMMENT}`, form);
 }
 
 export function deleteComment(commentID){
@@ -87,12 +74,12 @@ export function deleteComment(commentID){
   return postWithAuth(`${ApiRouter.DELETE_COMMENT}`, value);
 }
 
-export function editComment(commentID, content){
-  let value = {
-    CommentId : commentID,
-    Content: content
-  };
-  return postWithAuth(`${ApiRouter.EDIT_COMMENT}`, value);
+export function editComment(form){
+  // let value = {
+  //   CommentId : commentID,
+  //   Content: content
+  // };
+  return postWithAuth(`${ApiRouter.EDIT_COMMENT}`, form);
 }
 
 export function voteAnswer(answerID){

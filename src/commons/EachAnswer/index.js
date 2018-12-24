@@ -24,6 +24,8 @@ class EachAnswer extends React.PureComponent {
       userId: getStorage('userId'),
       showComment: false,
       newComment: null,
+      image: this.props.answer.Image,
+      imageComment: null
     };
   }
 
@@ -72,7 +74,11 @@ class EachAnswer extends React.PureComponent {
 
   onEditAnswerAPI = () => {
     if (this.state.editAnswer){
-      editAnswer(this.props.answer.AnswerId, this.state.editAnswer).then(
+      const formData = new FormData();
+      formData.append('image', this.state.image);
+      formData.append('Content', this.state.editAnswer);
+      formData.append('AnswerId', this.props.answer.AnswerId);
+      editAnswer(formData).then(
         res => {
           if (res.Status === 200){
             this.props.getInforQuestion();
@@ -118,6 +124,19 @@ class EachAnswer extends React.PureComponent {
             />
           </Col>
         </Row>
+        <Row>
+          <input
+            type="file"
+            name="file"
+            style={{
+             display: "inline-block",
+             margin: "10px"
+            }}
+            onChange={this.onChangeImageComment}
+            ref={ref => this.fileInputComment = ref}
+          />
+        </Row>
+        {this.renderImageComment()}
       </Col>
     )
   };
@@ -131,13 +150,18 @@ class EachAnswer extends React.PureComponent {
   onAddComment = (event) => {
     if(event.key === 'Enter'){
       if (this.state.newComment){
-        addComment(this.state.newComment, this.props.answer.AnswerId).then(
+        const formData = new FormData();
+        formData.append('image',this.state.imageComment);
+        formData.append('Content', this.state.newComment);
+        formData.append('AnswerId', this.props.answer.AnswerId);
+        addComment(formData).then(
           res => {
-            // console.log('res', res);
             if (res.Status === 200) {
               this.setState(() => ({
                 newComment: null,
+                imageComment: null
               }));
+              this.fileInputComment.value = null;
               this.props.getInforQuestion();
             }
             else {
@@ -175,7 +199,7 @@ class EachAnswer extends React.PureComponent {
           </span>
       )
     }
-  }
+  };
 
   onVote = () => {
     voteAnswer(this.props.answer.AnswerId).then(res => {
@@ -187,6 +211,103 @@ class EachAnswer extends React.PureComponent {
         }
       }
     }).catch(e => console.log(e));
+  };
+
+  onChangeImage = e => {
+    this.setState({
+      image: e.target.files[0],
+    });
+  };
+
+  onDeleteImage = () => {
+    this.setState({
+      image: null
+    });
+    this.fileInput.value = null;
+  };
+
+  renderImage = () => {
+    const {image} = this.state;
+    if (image){
+      if (typeof(image) === "string"){
+        return (
+          <Row>
+            <img
+              src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + this.state.image}
+              style={{width: "100px"}}
+              alt="Image"
+            />
+
+            <Button
+              type="primary"
+              style={{width: "20%", margin: "10px 30px"}}
+              onClick={this.onDeleteImage}
+            >
+              Xóa ảnh
+            </Button>
+
+          </Row>
+        )
+      } else {
+        let x = URL.createObjectURL(image);
+        return (
+          <Row>
+            <img
+              src={x}
+              style={{width: "100px"}}
+              alt="Image"
+            />
+
+            <Button
+              type="primary"
+              style={{width: "20%", margin: "10px 30px"}}
+              onClick={this.onDeleteImage}
+            >
+              Xóa ảnh
+            </Button>
+
+          </Row>
+        )
+      }
+    }
+    return null
+  };
+
+  onChangeImageComment = e => {
+    this.setState({
+      imageComment: e.target.files[0],
+    });
+  };
+
+  renderImageComment = () => {
+    const {imageComment} = this.state;
+    if (imageComment){
+      let x = URL.createObjectURL(imageComment);
+      return (
+        <Row>
+          <img
+            src={x}
+            style={{maxWidth: "100px"}}
+            alt="Image"
+          />
+          <Button
+            type="primary"
+            style={{width: "20%", margin: "10px 30px"}}
+            onClick={this.onDeleteImageComment}
+          >
+            Xóa ảnh
+          </Button>
+        </Row>
+      )
+    }
+    return null
+  };
+
+  onDeleteImageComment = () => {
+    this.setState({
+      imageComment: null
+    });
+    this.fileInputComment.value = null;
   };
   
   render() {
@@ -210,13 +331,26 @@ class EachAnswer extends React.PureComponent {
         {
           this.state.showFormEditAnswer
             ?
-            <Row>
-              <Col span={24}>
+            <Col span={22}>
+              <Col span={20}>
                 <Input
                   className="input"
                   onChange={this.onChangeAnswer}
                   value={this.state.editAnswer}
                 />
+              </Col>
+              <Col span={20}>
+                <input type="file" name="file"
+                       style={{
+                         display: "inline-block",
+                         marginTop: "5px"
+                       }}
+                       onChange={this.onChangeImage}
+                       ref={ref => this.fileInput = ref}
+                />
+              </Col>
+              <Col span={20}>
+                {this.renderImage()}
               </Col>
               <Col span={24}>
                 <Row>
@@ -237,7 +371,7 @@ class EachAnswer extends React.PureComponent {
                   </Button>
                 </Row>
               </Col>
-            </Row>
+            </Col>
             :
             <Col span={22}>
               <Col
@@ -248,6 +382,17 @@ class EachAnswer extends React.PureComponent {
                 <Col className="answerContainer" span={22} style={{padding: "10px 20px"}}>
                   <span className="authAnswer">{answer.User}</span>
                   <span>{answer.Content}</span>
+                  <Col span={24}>
+                    {
+                      answer.Image ?
+                        <img
+                          src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + answer.Image}
+                          style={{maxWidth: "100px", marginTop: "5px"}}
+                          alt="Image"
+                        />
+                        : null
+                    }
+                  </Col>
                 </Col>
                 {
                   this.state.showTextEditQuestion ?
