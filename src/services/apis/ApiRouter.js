@@ -19,7 +19,7 @@ export let ApiRouter  = {
   LIST_QUESTION: 'question/listQuestion',
   LIST_QUESTION_BY_THEME: 'question/listQuestionByTheme',
   TOP_QUESTION: 'question/TopQuestion',
-  TOP_USER: 'user/topUser',
+  TOP_HC: 'user/topHC',
 };
 
   

@@ -60,6 +60,7 @@ export class TopQuestion extends React.PureComponent {
       getTopQuestion()
         .then(res => {
           if (res.Status === 200){
+            // console.log('res', res)
             this.setState({
               listQuestion: res.listQuestion,
             })

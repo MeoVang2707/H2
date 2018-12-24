@@ -42,7 +42,9 @@ export class Profile extends React.PureComponent {
     if (this.state.token){
       getMyQuestion()
         .then(res => {
+          console.log(res);
           if (res.Status === 200){
+            // console.log('aaaa', res.myQuestion);
             this.setState({
               listQuestion: res.myQuestion,
               numberPost: res.myQuestion.length

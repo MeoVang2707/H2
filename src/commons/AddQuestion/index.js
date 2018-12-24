@@ -54,6 +54,7 @@ class AddQuestion extends React.PureComponent {
             contentQuestion: null,
             typeQuestion: "Môn học"
           });
+          this.fileInput.value = null;
           if (res.Status === 200){
             this.props.getListMyQuestion();
             this.props.reloadPoint();
@@ -106,6 +107,7 @@ class AddQuestion extends React.PureComponent {
 
               <input type="file" name="file" style={{display: "inline-block"}}
                      onChange={this.onChangeImage}
+                     ref={ref => this.fileInput = ref}
               />
 
               <Button

@@ -269,7 +269,7 @@ class Question extends React.PureComponent {
                     <img
                       src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + question.Image}
                       style={{maxWidth: "100%"}}
-                      alt={question.Image}
+                      alt="Image"
                     />
                     : null
                 }
@@ -289,16 +289,25 @@ class Question extends React.PureComponent {
             {
               question.Voted === "chua unlock cau hoi" ?
                 <Col span={7} offset={1}>
-              <span
-                className="textEdit"
-                onClick={this.showModal}
-              >
-                Mở khóa bình luận
-              </span>
+                  <span
+                    className="textEdit"
+                    onClick={this.showModal}
+                  >
+                    Mở khóa bình luận
+                  </span>
                 </Col>
                 :
                 null
             }
+
+            {
+              question.UnlockNumber ?
+                <Col span={7} offset={1}>
+                  <span>Số người unlock: {question.UnlockNumber}</span>
+                </Col>
+                : null
+            }
+
           </Row>
           <Row type="flex" align="middle">
             <Col span={2}>

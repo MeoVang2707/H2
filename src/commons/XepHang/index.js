@@ -63,9 +63,14 @@ class XepHang extends React.PureComponent {
   }
 
   getData = () => {
-    getTopQuestion().then(
+    getTopUser().then(
       res => {
-        console.log('res', res)
+        console.log(res);
+        if (res.Status === 200){
+          this.setState({
+            listXepHang: res.topUser
+          })
+        }
       }
     ).catch(e => console.log(e))
   }
@@ -102,8 +107,8 @@ class XepHang extends React.PureComponent {
         {this.state.listXepHang.map((user, index) => (
           <Row align="middle" type="flex" justify="space-between" className="rowThongKe" key={index}>
             <Col>{index+1}</Col>
-            <Col>{user.User}</Col>
-            <Col>{user.Point} HHC</Col>
+            <Col>{user.Email}</Col>
+            <Col>{user.point} HHC</Col>
           </Row>
         ))}
       </div>

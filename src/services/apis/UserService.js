@@ -129,8 +129,5 @@ export function getTopQuestion(){
 }
 
 export function getTopUser(){
-  let value = {
-    Index: 1,
-  };
-  return getWithAuth(`${ApiRouter.TOP_USER}`);
+  return getWithAuth(`${ApiRouter.TOP_HC}`);
 }
