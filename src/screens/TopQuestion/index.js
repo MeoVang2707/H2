@@ -34,7 +34,7 @@ export class TopQuestion extends React.PureComponent {
     this.reloadPoint = this.reloadPoint.bind(this);
   }
   componentDidMount(){
-    this.getListAllQuestion();
+    // this.getListAllQuestion();
     this.reloadPoint()
   }
 

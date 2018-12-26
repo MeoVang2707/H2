@@ -23,7 +23,7 @@ export class Home extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.getListAllQuestion();
+    // this.getListAllQuestion();
   }
 
   getListAllQuestion() {
