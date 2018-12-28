@@ -34,7 +34,7 @@ export class Profile extends React.PureComponent {
     this.reloadPoint = this.reloadPoint.bind(this);
   }
   componentDidMount(){
-    this.getListMyQuestion();
+    // this.getListMyQuestion();
     this.reloadPoint();
   }
 
