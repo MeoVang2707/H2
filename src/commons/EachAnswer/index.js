@@ -387,7 +387,7 @@ class EachAnswer extends React.PureComponent {
                       answer.Image ?
                         <img
                           src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + answer.Image}
-                          style={{maxWidth: "100px", marginTop: "5px"}}
+                          style={{maxWidth: "100%", marginTop: "5px"}}
                           alt="Imagee" />
                         : null
                     }
