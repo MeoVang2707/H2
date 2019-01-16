@@ -113,7 +113,7 @@ class EachComment extends React.PureComponent {
             <img
               src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + this.state.image}
               style={{width: "100px"}}
-              alt="Image"
+              alt="Imagee"
             />
 
             <Button
@@ -133,7 +133,7 @@ class EachComment extends React.PureComponent {
             <img
               src={x}
               style={{width: "100px"}}
-              alt="Image"
+              alt="Imagee"
             />
 
             <Button
@@ -234,7 +234,7 @@ class EachComment extends React.PureComponent {
                         <img
                           src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + comment.Image}
                           style={{maxWidth: "100px", marginTop: "5px"}}
-                          alt="Image"
+                          alt="Imagee"
                         />
                         : null
                     }

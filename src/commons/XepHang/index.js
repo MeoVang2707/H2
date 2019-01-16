@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Divider, Row, Col, Icon} from 'antd';
 
-import {getTopUser, getTopQuestion} from '../../services/apis/UserService'
+import {getTopUser} from '../../services/apis/UserService'
 import './style.css'
 
 /* eslint-disable react/prefer-stateless-function */

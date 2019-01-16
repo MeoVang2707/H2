@@ -86,7 +86,7 @@ class EditQuestion extends React.PureComponent {
             <img
               src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + this.state.image}
               style={{width: "100px"}}
-              alt="Image"
+              alt="Imagee"
             />
 
             <Button
@@ -106,7 +106,7 @@ class EditQuestion extends React.PureComponent {
             <img
               src={x}
               style={{width: "100px"}}
-              alt="Image"
+              alt="Imagee"
             />
 
             <Button

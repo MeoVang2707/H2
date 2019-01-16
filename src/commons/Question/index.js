@@ -227,7 +227,7 @@ class Question extends React.PureComponent {
           <img
             src={x}
             style={{maxWidth: "100px"}}
-            alt="Image"
+            alt="Imagee"
           />
           <Button
             type="primary"
@@ -314,8 +314,8 @@ class Question extends React.PureComponent {
                   question.Image ?
                     <img
                       src={"https://frozen-garden-23187.herokuapp.com/api/question/getImage?image_name=" + question.Image}
-                      style={{maxWidth: "100px"}}
-                      alt="Image"
+                      style={{maxWidth: "100%"}}
+                      alt="Imagee"
                     />
                     : null
                 }

@@ -81,7 +81,7 @@ class AddQuestion extends React.PureComponent {
           <img
             src={x}
             style={{maxWidth: "100px"}}
-            alt="Image"
+            alt="Imagee"
           />
           <Button
             type="primary"
