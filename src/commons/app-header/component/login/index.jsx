@@ -22,6 +22,7 @@ export default class Login extends React.Component {
   onChangeInput(e) {
     const newValue = e.target.value;
     const name = e.target.name;
+    console.log('aaa', [name]);
     this.setState({[name]: newValue});
   }
 
@@ -57,7 +58,7 @@ export default class Login extends React.Component {
         }
       }
     )
-  }
+  };
 
   render() {
     const {show} = this.props;
